@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
     inputs:
       max_pages:
-        description: "카테고리당 확인할 최대 페이지 수"
-        default: "3"
+        description: "카테고리당 최대 페이지 수 (안전장치, 보통 그대로 두기)"
+        default: "60"
 
 permissions:
   contents: write
@@ -23,7 +23,7 @@ concurrency:
 jobs:
   crawl:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
@@ -36,7 +36,7 @@ jobs:
 
       - name: 수집
         env:
-          MAX_PAGES: ${{ github.event.inputs.max_pages || '3' }}
+          MAX_PAGES: ${{ github.event.inputs.max_pages || '60' }}
           # 뉴스는 자동 실행 땐 6시간에 한 번, 수동 실행 땐 항상 새로 받음
           FORCE_NEWS: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
         # 학교 서버 접속이 실패해도 뉴스·날씨는 커밋하고, 마지막 단계에서 실패로 표시

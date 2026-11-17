@@ -54,7 +54,9 @@ python scraper/crawl.py
 python -m http.server 8000 -d docs   # http://localhost:8000
 ```
 
-환경변수: `MAX_PAGES`(기본 3), `KEEP`(카테고리당 보관 건수, 기본 120), `DELAY`(요청 간격 초, 기본 0.7), `REPARSE=1`(기존 글도 다시 분석), `FORCE_NEWS=1`(뉴스 6시간 제한 무시).
+환경변수: `SINCE`(이 날짜 이후 게시된 글만 수집·보관, 기본 `2026-06-01`), `MAX_PAGES`(탭당 최대 페이지 수 안전장치, 기본 60), `DELAY`(요청 간격 초, 기본 0.7), `REPARSE=1`(기존 글도 다시 분석), `FORCE_NEWS=1`(뉴스 6시간 제한 무시).
+
+수집 범위는 **2026년 6월 1일 이후 게시글**입니다. 처음 한 번은 탭마다 기준일까지 끝까지 받고(`backfilled` 기록), 그다음부터는 새 글만 확인합니다. 기준일을 바꾸려면 `scraper/crawl.py` 의 `SINCE` 를 고치면 되고, 다음 실행에서 새 기준일까지 다시 받습니다.
 
 ## 참고
 

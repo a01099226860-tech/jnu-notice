@@ -2,12 +2,14 @@
 
 탭(category)별 목록을 읽어 새 글(seq 기준)만 상세 페이지에서 본문을 가져오고,
 마감일·주최기관 등을 추출해 docs/data/notices.json 에 저장한다.
+기준일(SINCE) 이후 게시된 글만 수집·보관한다.
 
 사용법:  python scraper/crawl.py
 환경변수:
-  MAX_PAGES  카테고리당 최대 몇 페이지까지 내려가 볼지 (기본 3, 페이지당 20건)
-  KEEP       카테고리당 보관할 최대 글 수 (기본 120)
+  SINCE      이 날짜 이후 게시된 글만 수집 (기본 2026-06-01)
+  MAX_PAGES  카테고리당 최대 페이지 수 안전장치 (기본 60, 페이지당 20건)
   DELAY      요청 사이 대기 초 (기본 0.7)
+  REPARSE    1 이면 기존 글도 상세 페이지를 다시 분석
 """
 
 from __future__ import annotations
@@ -36,8 +38,8 @@ CATEGORIES = [
     {"id": 200, "name": "행사", "key": "event"},
 ]
 
-MAX_PAGES = int(os.getenv("MAX_PAGES", "3"))
-KEEP = int(os.getenv("KEEP", "120"))
+SINCE = os.getenv("SINCE") or "2026-06-01"  # 이 날짜 이후 게시된 글만
+MAX_PAGES = int(os.getenv("MAX_PAGES") or "60")  # 안전장치: 탭당 최대 페이지 수
 DELAY = float(os.getenv("DELAY", "0.7"))
 EXCERPT_LEN = 500  # 본문 앞부분만 저장 (카드는 2줄, 상세 모달은 전체 표시)
 REPARSE = bool(os.getenv("REPARSE"))  # 1 이면 기존 글도 상세 페이지를 다시 분석
@@ -340,6 +342,8 @@ def main() -> int:
     by_seq: dict[int, dict] = {n["seq"]: n for n in data.get("notices", [])}
     new_count = 0
     failed_cats = 0
+    # 탭별로 기준일까지 한 번 끝까지 받아뒀는지 (기준일을 바꾸면 다시 끝까지 받는다)
+    backfilled: dict[str, str] = data.get("backfilled", {})
 
     for cat in CATEGORIES:
         for page in range(1, MAX_PAGES + 1):
@@ -351,11 +355,15 @@ def main() -> int:
                     failed_cats += 1
                 break
             if not rows:
+                backfilled[cat["key"]] = SINCE
                 break
+            # 목록은 최신순(상단 고정글 제외)이라, 기준일보다 오래된 일반 글이 나오면 여기까지만 보면 된다
+            reached_cutoff = any(not r["pinned"] and r["date"] and r["date"] < SINCE for r in rows)
             page_new = 0
-            for row in rows:
+            for row in [r for r in rows if r["date"] and r["date"] >= SINCE]:
                 old = by_seq.get(row["seq"])
-                needs_reparse = REPARSE or (cat["key"] == "tuition" and "periods" not in old) if old else False
+                needs_reparse = (REPARSE or "opp" not in old
+                                 or (cat["key"] == "tuition" and "periods" not in old)) if old else False
                 if old and not needs_reparse:
                     # 이미 있는 글: 제목·조회수만 갱신
                     old.update({k: row[k] for k in ("title", "views", "pinned")})
@@ -388,20 +396,21 @@ def main() -> int:
                 page_new += 1
                 new_count += 1
                 print(f"  + [{cat['name']}] {row['title'][:50]}")
-            # 새 글이 없으면 더 내려갈 필요 없음 (REPARSE 일 때는 MAX_PAGES 끝까지 다시 분석)
-            if page_new == 0 and not REPARSE:
+            if reached_cutoff:
+                backfilled[cat["key"]] = SINCE
+                break
+            # 기준일까지 한 번 다 받아둔 탭은, 새 글이 없는 페이지가 나오면 멈춘다 (평소 30분 실행)
+            if page_new == 0 and not REPARSE and backfilled.get(cat["key"]) == SINCE:
                 break
 
-    # 카테고리별 최신 KEEP건만 보관
-    notices = sorted(by_seq.values(), key=lambda n: n["seq"], reverse=True)
-    kept, per_cat = [], {}
-    for n in notices:
-        per_cat[n["cat"]] = per_cat.get(n["cat"], 0) + 1
-        if per_cat[n["cat"]] <= KEEP:
-            kept.append(n)
+    # 기준일(SINCE) 이후 게시된 글만 보관
+    kept = sorted((n for n in by_seq.values() if n.get("date", "") >= SINCE),
+                  key=lambda n: n["seq"], reverse=True)
 
     out = {
         "updated_at": datetime.now(KST).isoformat(timespec="seconds"),
+        "since": SINCE,
+        "backfilled": backfilled,
         "source": BOARD,
         "categories": [{"key": c["key"], "name": c["name"], "id": c["id"]} for c in CATEGORIES],
         "notices": kept,
