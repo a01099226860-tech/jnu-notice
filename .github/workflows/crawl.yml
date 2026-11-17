@@ -1,9 +1,8 @@
 name: 공지 수집
 
+# 제주대 서버가 GitHub Actions(해외 IP) 접속을 거부하므로 정기 수집은 한국 클라우드 서버(server/run.sh)가 맡는다.
+# 이 워크플로는 수동 실행 전용 (뉴스·날씨만 급히 갱신할 때 등).
 on:
-  schedule:
-    # 매시 17분 (UTC 기준이지만 매시간이라 상관없음)
-    - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
       max_pages:

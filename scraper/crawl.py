@@ -39,7 +39,7 @@ CATEGORIES = [
 MAX_PAGES = int(os.getenv("MAX_PAGES", "3"))
 KEEP = int(os.getenv("KEEP", "120"))
 DELAY = float(os.getenv("DELAY", "0.7"))
-EXCERPT_LEN = 220
+EXCERPT_LEN = 500  # 본문 앞부분만 저장 (카드는 2줄, 상세 모달은 전체 표시)
 REPARSE = bool(os.getenv("REPARSE"))  # 1 이면 기존 글도 상세 페이지를 다시 분석
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -135,7 +135,7 @@ def parse_view(cat: dict, seq: int) -> dict:
             t = clean(raw)
             if t:
                 lines.append(t)
-    body = " ".join(lines)
+    body = "\n".join(lines)  # 줄바꿈 유지 (상세 모달에서 그대로 보여줌)
 
     attachments = []
     for a in (view.select("a[href*='act=download']") if view else []):
