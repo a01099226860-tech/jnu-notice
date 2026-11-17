@@ -1,7 +1,8 @@
 name: 공지 수집
 
-# 제주대 서버가 GitHub Actions(해외 IP) 접속을 거부하므로 정기 수집은 한국 클라우드 서버(server/run.sh)가 맡는다.
-# 이 워크플로는 수동 실행 전용 (뉴스·날씨만 급히 갱신할 때 등).
+# 수동 실행 전용: Actions 탭 → "공지 수집" → Run workflow
+# 제주대 서버가 GitHub 서버 접속을 막으면 마지막 단계가 실패로 표시된다.
+# 그때는 한국 IP 인 PC 에서 update.bat 를 실행하면 된다.
 on:
   workflow_dispatch:
     inputs:
@@ -33,6 +34,7 @@ jobs:
       - name: 수집
         env:
           MAX_PAGES: ${{ github.event.inputs.max_pages || '3' }}
+          FORCE_NEWS: "1"  # 수동 실행이므로 뉴스도 항상 새로 받음
         # 학교 서버 접속이 실패해도 뉴스·날씨는 커밋하고, 마지막 단계에서 실패로 표시
         run: python scraper/crawl.py || echo "SCHOOL_FAIL=1" >> "$GITHUB_ENV"
 
@@ -52,5 +54,5 @@ jobs:
       - name: 학교 서버 접속 확인
         if: env.SCHOOL_FAIL == '1'
         run: |
-          echo "::error::제주대 서버가 GitHub Actions 접속을 거부했습니다. 공지가 갱신되지 않았습니다."
+          echo "::error::제주대 서버가 GitHub Actions 접속을 거부했습니다. 공지가 갱신되지 않았습니다. 잠시 후 다시 실행하거나 PC 에서 update.bat 를 실행하세요."
           exit 1

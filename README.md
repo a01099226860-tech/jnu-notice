@@ -24,27 +24,25 @@
 
 ```
 scraper/crawl.py              수집기 (공지 + 혜택 뉴스 + 날씨)
-server/setup.sh               클라우드 서버 1회 설치 스크립트
-server/run.sh                 매시간 cron 실행: 수집 → 변경 시 커밋·push
+scripts/update.py             PC 수동 업데이트 (수집 → 변경 시 커밋·push)
+update.bat                    위 스크립트를 더블클릭으로 실행
 docs/                         GitHub Pages 로 배포되는 정적 사이트
   index.html, style.css, app.js
   data/notices.json · news.json · weather.json
-.github/workflows/crawl.yml   수동 실행 전용 (정기 수집은 클라우드 서버)
+.github/workflows/crawl.yml   GitHub 에서 수동 실행하는 수집 작업
 ```
 
-## 수집 서버 (한국 리전 클라우드)
+## 업데이트 방법 (수동)
 
-제주대 서버가 GitHub Actions(해외 IP)의 접속을 거부하기 때문에, 수집은 **한국 리전 클라우드 서버**에서 cron 으로 돌립니다. 서버는 수집 결과를 이 저장소에 push 하고, GitHub Pages 가 자동으로 다시 배포합니다.
+**기본: GitHub 에서 버튼으로 실행**
 
-1. 한국(서울/춘천) 리전에 **Ubuntu 22.04 또는 24.04** 서버를 만듭니다. 가장 작은 사양(1 vCPU / 1GB)이면 충분합니다.
-   - 예: Oracle Cloud Always Free(서울·춘천), AWS Lightsail 서울, 네이버 클라우드 등
-2. 서버에 SSH 로 접속해서 실행합니다.
-   ```bash
-   curl -fsSL https://raw.githubusercontent.com/a01099226860-tech/jnu-notice/main/server/setup.sh | bash
-   ```
-3. 화면에 출력되는 공개키를 저장소 **Settings → Deploy keys → Add deploy key** 에 붙여넣고 **Allow write access** 를 체크합니다. (이 저장소에만 쓰기 권한이 있는 키라 계정 전체 권한이 서버에 남지 않습니다.)
-4. Enter 를 누르면 clone, 패키지 설치, 학교 서버 접속 테스트, cron 등록(매시간 17분), 첫 실행까지 자동으로 진행됩니다.
-5. 로그: `tail -f ~/jnu-notice.log`
+1. 저장소 → **Actions** 탭 → 왼쪽 **공지 수집** → 오른쪽 **Run workflow** → **Run workflow**
+2. 1분 안팎이면 끝나고, 새 글이 있으면 데이터가 커밋되어 1~2분 뒤 사이트에 반영됩니다.
+3. 휴대폰에서는 GitHub 앱이나 모바일 웹의 Actions 화면에서 같은 버튼으로 실행할 수 있습니다.
+
+**예비: 이 PC 에서 실행**
+
+제주대 서버가 GitHub 서버(해외 IP) 접속을 막을 때가 있습니다. 그러면 Actions 실행 결과에 빨간 실패와 함께 "제주대 서버가 GitHub Actions 접속을 거부했습니다"가 표시됩니다. 이때는 한국 IP 인 PC 에서 프로젝트 폴더의 **`update.bat` 를 더블클릭**하세요. 수집하고 바뀐 내용만 GitHub 에 올립니다. (Python 과 git, GitHub 로그인이 된 PC 여야 합니다.)
 
 ## 로컬 실행
 
