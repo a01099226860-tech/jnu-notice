@@ -29,16 +29,18 @@ update.bat                    위 스크립트를 더블클릭으로 실행
 docs/                         GitHub Pages 로 배포되는 정적 사이트
   index.html, style.css, app.js
   data/notices.json · news.json · weather.json
-.github/workflows/crawl.yml   GitHub 에서 수동 실행하는 수집 작업
+.github/workflows/crawl.yml   수집 작업 (30분마다 자동 + 수동 실행)
 ```
 
-## 업데이트 방법 (수동)
+## 업데이트
 
-**기본: GitHub 에서 버튼으로 실행**
+**자동: 30분마다**
 
-1. 저장소 → **Actions** 탭 → 왼쪽 **공지 수집** → 오른쪽 **Run workflow** → **Run workflow**
-2. 1분 안팎이면 끝나고, 새 글이 있으면 데이터가 커밋되어 1~2분 뒤 사이트에 반영됩니다.
-3. 휴대폰에서는 GitHub 앱이나 모바일 웹의 Actions 화면에서 같은 버튼으로 실행할 수 있습니다.
+GitHub Actions 가 매시 7분·37분에 공지·날씨를 수집하고(뉴스는 6시간마다), 바뀐 내용이 있으면 커밋합니다. 사이트는 새로고침할 때마다 최신 데이터 파일을 받으므로, 방문자는 새로고침하면 최대 30분 전 데이터를 보게 됩니다. (GitHub 사정으로 실행이 몇 분~수십 분 늦어질 때가 있습니다.)
+
+**바로 갱신하고 싶을 때: 수동 실행**
+
+저장소 → **Actions** 탭 → 왼쪽 **공지 수집** → **Run workflow**. 1분 안팎이면 끝나고 1~2분 뒤 사이트에 반영됩니다. 휴대폰 GitHub 앱에서도 됩니다.
 
 **예비: 이 PC 에서 실행**
 

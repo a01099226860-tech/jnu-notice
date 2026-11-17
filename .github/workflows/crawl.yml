@@ -1,9 +1,12 @@
 name: 공지 수집
 
-# 수동 실행 전용: Actions 탭 → "공지 수집" → Run workflow
-# 제주대 서버가 GitHub 서버 접속을 막으면 마지막 단계가 실패로 표시된다.
+# 30분마다 자동 실행 + 필요하면 Actions 탭 → "공지 수집" → Run workflow 로 수동 실행
+# 제주대 서버가 GitHub 서버 접속을 막으면 마지막 단계가 실패로 표시된다 (GitHub 이 메일로 알림).
 # 그때는 한국 IP 인 PC 에서 update.bat 를 실행하면 된다.
 on:
+  schedule:
+    # 정각은 GitHub 전체가 붐벼 지연되기 쉬워 7분·37분에 실행 (UTC 기준이지만 30분 간격이라 무관)
+    - cron: "7,37 * * * *"
   workflow_dispatch:
     inputs:
       max_pages:
@@ -34,7 +37,8 @@ jobs:
       - name: 수집
         env:
           MAX_PAGES: ${{ github.event.inputs.max_pages || '3' }}
-          FORCE_NEWS: "1"  # 수동 실행이므로 뉴스도 항상 새로 받음
+          # 뉴스는 자동 실행 땐 6시간에 한 번, 수동 실행 땐 항상 새로 받음
+          FORCE_NEWS: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
         # 학교 서버 접속이 실패해도 뉴스·날씨는 커밋하고, 마지막 단계에서 실패로 표시
         run: python scraper/crawl.py || echo "SCHOOL_FAIL=1" >> "$GITHUB_ENV"
 
