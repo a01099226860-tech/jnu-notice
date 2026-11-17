@@ -34,7 +34,8 @@ jobs:
       - name: 수집
         env:
           MAX_PAGES: ${{ github.event.inputs.max_pages || '3' }}
-        run: python scraper/crawl.py
+        # 학교 서버 접속이 실패해도 뉴스·날씨는 커밋하고, 마지막 단계에서 실패로 표시
+        run: python scraper/crawl.py || echo "SCHOOL_FAIL=1" >> "$GITHUB_ENV"
 
       - name: 변경 사항 커밋
         run: |
@@ -48,3 +49,9 @@ jobs:
           git add docs/data
           git commit -m "data: 공지 업데이트 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
           git push
+
+      - name: 학교 서버 접속 확인
+        if: env.SCHOOL_FAIL == '1'
+        run: |
+          echo "::error::제주대 서버가 GitHub Actions 접속을 거부했습니다. 공지가 갱신되지 않았습니다."
+          exit 1

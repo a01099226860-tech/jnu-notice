@@ -267,6 +267,7 @@ def main() -> int:
     data = load()
     by_seq: dict[int, dict] = {n["seq"]: n for n in data.get("notices", [])}
     new_count = 0
+    failed_cats = 0
 
     for cat in CATEGORIES:
         for page in range(1, MAX_PAGES + 1):
@@ -274,6 +275,8 @@ def main() -> int:
                 rows = parse_list(cat, page)
             except Exception as e:  # noqa: BLE001
                 print(f"[{cat['name']}] page {page} 실패: {e}", file=sys.stderr)
+                if page == 1:
+                    failed_cats += 1
                 break
             if not rows:
                 break
@@ -336,6 +339,9 @@ def main() -> int:
 
     crawl_news()
     crawl_weather()
+    if failed_cats == len(CATEGORIES):
+        print("학교 서버에 접속하지 못했습니다 (모든 탭 실패).", file=sys.stderr)
+        return 2
     return 0
 
 
