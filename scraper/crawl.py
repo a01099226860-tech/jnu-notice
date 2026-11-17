@@ -251,6 +251,78 @@ def guess_org(title: str) -> str | None:
     return None
 
 
+# ---------------------------------------------------------------- 기회 공지 정보 (opportunity 페이지용)
+# 분야: 장학 / 국제교류 / 비교과 / 행사. 기회 성격이 아닌 공지(등록금, 채용, 시설 안내 등)는 None.
+COLLEGES = [
+    "인문대학", "사회과학대학", "경상대학", "사범대학", "자연과학대학",
+    "공과대학", "생명자원과학대학", "해양과학대학", "수의과대학",
+    "의과대학", "간호대학", "생활과학대학",
+]
+OPP_INTL = re.compile(r"국제교류|교환학생|해외|어학연수|글로벌|유학|외국어|방문학생|복수학위")
+OPP_PROGRAM = re.compile(r"모집|프로그램|특강|캠프|교육|참가|멘토|멘티|아카데미|공모|서포터즈|기자단|체험|연수|클래스|워크숍|봉사")
+OPP_EXCLUDE = re.compile(r"채용|공무원|계약직|합격자|입찰|수요조사|위치 및 사용법|조치완료|업데이트|폰트")
+LEAD = re.compile(r"^[\s\-*·○◎※▶■□•●◆◇▷☞>]*(?:\d{1,2}[.)]|[가-하][.)]|\(\d{1,2}\)|[①-⑳])?\s*")
+
+
+def _field(lines: list[str], key: str, limit: int = 70) -> str | None:
+    """'키: 값' 형태의 줄에서 값을 꺼낸다. 값이 비어 있으면 다음 줄을 쓴다."""
+    pat = re.compile(rf"^(?:{key})\s*[:：|ㅣ]\s*(.*)$")
+    for i, raw in enumerate(lines[:80]):
+        # 앞쪽 이모지·기호·번호 제거 (예: "🎯 모집 대상 | …", "가. 지원자격: …")
+        line = LEAD.sub("", re.sub(r"^[^\w\[(]+", "", raw))
+        m = pat.match(line)
+        if not m:
+            continue
+        val = m.group(1).strip() or (LEAD.sub("", lines[i + 1]).strip() if i + 1 < len(lines) else "")
+        val = re.sub(r"\s+", " ", val)
+        if len(val) >= 2:
+            return val[:limit] + ("…" if len(val) > limit else "")
+    return None
+
+
+def _grades(texts: list[str]) -> list[int] | str:
+    found: set[int] = set()
+    for t in texts:
+        for a, b in re.findall(r"(?<!\d)([1-4])\s*[~∼\-]\s*([1-4])\s*학년(?!도)", t):
+            found.update(range(int(a), int(b) + 1))
+        for grp in re.findall(r"(?<!\d)((?:[1-4]\s*[,·/및]\s*)+[1-4])\s*학년(?!도)", t):
+            found.update(int(x) for x in re.findall(r"[1-4]", grp))
+        for a in re.findall(r"(?<![\d~∼\-,·/])([1-4])\s*학년(?!도)", t):
+            found.add(int(a))
+        if "신입생" in t:
+            found.add(1)
+    return sorted(found) if found and len(found) < 4 else "전체"
+
+
+def extract_opp(title: str, author: str, cat_key: str, lines: list[str]) -> dict | None:
+    if cat_key == "tuition" or OPP_EXCLUDE.search(title):
+        return None
+    if OPP_INTL.search(title) or "국제교류" in author:
+        category = "국제교류"
+    elif cat_key == "scholarship" or "장학" in title:
+        category = "장학"
+    elif cat_key == "event":
+        category = "행사"
+    elif cat_key == "volunteer" or OPP_PROGRAM.search(title):
+        category = "비교과"
+    else:
+        return None
+
+    who = _field(lines, r"(?:지원|신청|참가|참여|모집|선발|수혜)?\s*(?:대상|자격)(?:\s*및\s*인원)?")
+    target_lines = [title] + [l for l in lines[:80] if re.search(r"대상|자격|모집|선발|학년", l)]
+    colleges = [c for c in COLLEGES if any(c in t for t in target_lines + [author])]
+    return {
+        "category": category,
+        "grades": _grades(target_lines),
+        "colleges": colleges or "전체",
+        "who": who,
+        "benefit": _field(lines, r"혜택|지원\s*내용|지원\s*사항|장학\s*금액|장학\s*혜택|지급\s*(?:액|금액|내용)|활동비|특전|시상(?:\s*내역)?|상금|수혜\s*내용|활동\s*혜택"),
+        "how": _field(lines, r"(?:신청|접수|지원|제출|참가\s*신청)\s*방법|신청\s*방식|접수\s*방식"),
+        "contact": _field(lines, r"문의(?:처|사항)?", 50),
+        "always": bool(re.search(r"상시", title + " ".join(lines[:40]))),
+    }
+
+
 def is_closed(title: str) -> bool:
     return bool(re.search(r"[\[(]\s*(완료|마감|종료)\s*[\])]", title))
 
@@ -302,6 +374,7 @@ def main() -> int:
                     "attachments": detail["attachments"],
                     "deadline": guess_deadline(row["title"], detail["lines"], posted),
                     "org": guess_org(row["title"]),
+                    "opp": extract_opp(row["title"], row["author"], cat["key"], detail["lines"]),
                     "closed": is_closed(row["title"]),
                     "url": f"{BOARD}?category={cat['id']}&act=view&seq={row['seq']}",
                 })
@@ -315,8 +388,8 @@ def main() -> int:
                 page_new += 1
                 new_count += 1
                 print(f"  + [{cat['name']}] {row['title'][:50]}")
-            # 상단 고정글을 제외한 일반 글 중 새 글이 없으면 더 내려갈 필요 없음
-            if page_new == 0:
+            # 새 글이 없으면 더 내려갈 필요 없음 (REPARSE 일 때는 MAX_PAGES 끝까지 다시 분석)
+            if page_new == 0 and not REPARSE:
                 break
 
     # 카테고리별 최신 KEEP건만 보관

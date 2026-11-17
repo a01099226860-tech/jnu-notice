@@ -1,0 +1,376 @@
+<!doctype html>
+<!--
+  제주대 기회 공지 모아보기 (가칭) — v1
+  Astryx 0.7.16 디자인 시스템을 CDN으로 불러오는 단일 HTML 파일입니다.
+
+  데이터는 같은 사이트의 ../data/notices.json (수집기 scraper/crawl.py 가 30분마다 갱신)을 읽습니다.
+  각 공지의 "opp" 항목(분야·학년·단과대·누가·혜택·신청방법·문의처)은 수집기가 본문에서 자동 추출한 값입니다.
+-->
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>제주대 기회 공지 모아보기 (가칭)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@astryxdesign/core@0.7.16/src/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@astryxdesign/core@0.7.16/dist/astryx.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@astryxdesign/theme-neutral@0.7.16/dist/theme.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@19.2.0",
+          "react/jsx-runtime": "https://esm.sh/react@19.2.0/jsx-runtime",
+          "react-dom": "https://esm.sh/react-dom@19.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@19.2.0/client",
+          "htm": "https://esm.sh/htm@3.1.1",
+          "@astryxdesign/core": "https://esm.sh/@astryxdesign/core@0.7.16?external=react,react-dom",
+          "@astryxdesign/theme-neutral": "https://esm.sh/@astryxdesign/theme-neutral@0.7.16?external=react,react-dom"
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: var(--font-family-body);
+      }
+      #root:empty::after {
+        content: '불러오는 중…';
+        display: block;
+        padding: var(--spacing-8);
+        color: var(--color-text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import * as React from 'react';
+      import {createRoot} from 'react-dom/client';
+      import htm from 'htm';
+      import {
+        Theme, Layout, LayoutHeader, LayoutContent, LayoutPanel, LayoutFooter,
+        VStack, HStack, StackItem, Grid, Center, Divider,
+        Heading, Text, Button, Token, Card, ClickableCard,
+        RadioList, RadioListItem, Selector, CheckboxInput, DropdownMenu,
+        Drawer, DrawerHeader,
+      } from '@astryxdesign/core';
+      import {neutralTheme} from '@astryxdesign/theme-neutral';
+
+      const h = htm.bind(React.createElement);
+      const {useState, useMemo, useEffect} = React;
+
+      // ================================================================
+      // 설정 — 팀이 바꿀 값
+      // ================================================================
+      const DATA_URL = '../data/notices.json';
+      const FEEDBACK_URL = 'https://forms.gle/REPLACE_WITH_YOUR_FORM'; // 구글폼 링크로 교체 (교체 전에는 버튼이 숨겨져요)
+      const HAS_FEEDBACK = !FEEDBACK_URL.includes('REPLACE');
+      const STALE_DAYS = 30; // 마감일이 없는 공지는 게시 후 이 기간까지만 보여줌
+
+      // 단과대 목록 — 기획 B·C가 실제 목록으로 확인·수정 (scraper/crawl.py 의 COLLEGES 와 맞출 것)
+      const COLLEGES = [
+        '인문대학', '사회과학대학', '경상대학', '사범대학', '자연과학대학',
+        '공과대학', '생명자원과학대학', '해양과학대학', '수의과대학',
+        '의과대학', '간호대학', '생활과학대학',
+      ];
+
+      const CATEGORIES = ['장학', '국제교류', '비교과', '행사'];
+      const CATEGORY_COLOR = {장학: 'blue', 국제교류: 'purple', 비교과: 'green', 행사: 'orange'};
+      const BOARD_NAME = {volunteer: '봉사', class: '수업', general: '일반', scholarship: '장학', tuition: '등록', event: '행사'};
+
+      // ================================================================
+      // 수집 데이터 → 화면용 공지 형태로 변환
+      // grades: '전체' 또는 [1,2] / colleges: '전체' 또는 ['공과대학']
+      // deadline: 'YYYY-MM-DD' / '상시' / null(본문에 마감일 없음)
+      // ================================================================
+      const CHECK = '원문에서 확인';
+      function toNotice(n) {
+        const o = n.opp;
+        return {
+          id: n.seq,
+          category: o.category,
+          title: n.title,
+          grades: o.grades,
+          colleges: o.colleges,
+          who: o.who || CHECK,
+          benefit: o.benefit || CHECK,
+          deadline: n.deadline || (o.always ? '상시' : null),
+          howToApply: o.how || CHECK,
+          contact: o.contact || n.author,
+          postedAt: n.date,
+          source: `제주대 공지사항 ${BOARD_NAME[n.cat] || ''} · ${n.author}`,
+          url: n.url,
+          closed: n.closed,
+        };
+      }
+
+      // ================================================================
+      // 날짜 계산
+      // ================================================================
+      const todayStart = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
+      const parseDate = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+      const hasDate = n => n.deadline && n.deadline !== '상시';
+      const daysLeft = n => hasDate(n) ? Math.round((parseDate(n.deadline) - todayStart()) / 864e5) : Infinity;
+      const ddayLabel = n => { if (n.deadline === '상시') return '상시'; if (!n.deadline) return '마감일 미표기'; const d = daysLeft(n); return d === 0 ? 'D-day' : `D-${d}`; };
+      const ddayColor = n => { const d = daysLeft(n); return d === Infinity ? 'gray' : d <= 3 ? 'red' : 'default'; };
+      const prettyDate = n => { if (n.deadline === '상시') return '상시 모집'; if (!n.deadline) return CHECK; const d = parseDate(n.deadline); return `${d.getMonth() + 1}월 ${d.getDate()}일까지`; };
+      const targetText = v => v === '전체' ? '전체' : v.map(x => typeof x === 'number' ? `${x}학년` : x).join(', ');
+      const isStale = n => !hasDate(n) && n.deadline !== '상시' && (todayStart() - parseDate(n.postedAt)) / 864e5 > STALE_DAYS;
+
+      // ================================================================
+      // 필터 저장 (브라우저에만 저장, 실패해도 동작)
+      // ================================================================
+      const STORE_KEY = 'jnu-opportunity-filters-v1';
+      const DEFAULT_FILTERS = {grade: '전체', college: '전체', categories: CATEGORIES};
+      const loadFilters = () => {
+        try { return {...DEFAULT_FILTERS, ...JSON.parse(localStorage.getItem(STORE_KEY) || '{}')}; }
+        catch { return DEFAULT_FILTERS; }
+      };
+      const saveFilters = f => { try { localStorage.setItem(STORE_KEY, JSON.stringify(f)); } catch {} };
+
+      // ================================================================
+      // 화면 조각
+      // ================================================================
+      function NoticeCard({notice, onOpen}) {
+        return h`
+          <${ClickableCard} label=${notice.title} onClick=${() => onOpen(notice)} height="100%">
+            <${VStack} gap=${3}>
+              <${HStack} hAlign="between" vAlign="center" gap=${2}>
+                <${Token} label=${notice.category} color=${CATEGORY_COLOR[notice.category]} size="sm" />
+                <${Token} label=${ddayLabel(notice)} color=${ddayColor(notice)} size="sm" />
+              </${HStack}>
+              <${Heading} level=${3} maxLines=${2} textWrap="pretty" style=${{wordBreak: 'keep-all'}}>${notice.title}</${Heading}>
+              <${VStack} gap=${1}>
+                <${Text} size="sm" maxLines=${1}><${Text} type="supporting" size="sm">누가 </${Text}>${notice.who}</${Text}>
+                <${Text} size="sm" maxLines=${1}><${Text} type="supporting" size="sm">혜택 </${Text}>${notice.benefit}</${Text}>
+                <${Text} size="sm" maxLines=${1}><${Text} type="supporting" size="sm">마감 </${Text}>${prettyDate(notice)}</${Text}>
+              </${VStack}>
+            </${VStack}>
+          </${ClickableCard}>
+        `;
+      }
+
+      function FilterPanel({filters, setFilters}) {
+        const toggleCategory = (cat, checked) => setFilters(f => ({
+          ...f,
+          categories: checked ? CATEGORIES.filter(c => c === cat || f.categories.includes(c)) : f.categories.filter(c => c !== cat),
+        }));
+        return h`
+          <${VStack} gap=${6}>
+            <${Heading} level=${2}>내 조건 필터</${Heading}>
+            <${RadioList} label="학년" value=${filters.grade} onChange=${v => setFilters(f => ({...f, grade: v}))} size="sm">
+              ${['전체', '1', '2', '3', '4'].map(g => h`<${RadioListItem} key=${g} value=${g} label=${g === '전체' ? '전체 학년' : `${g}학년`} />`)}
+            </${RadioList}>
+            <${Selector}
+              label="단과대"
+              value=${filters.college}
+              onChange=${v => setFilters(f => ({...f, college: v}))}
+              options=${[{value: '전체', label: '전체 단과대'}, ...COLLEGES.map(c => ({value: c, label: c}))]}
+              width="100%" />
+            <${VStack} gap=${2}>
+              <${Text} type="label">분야</${Text}>
+              ${CATEGORIES.map(cat => h`
+                <${CheckboxInput} key=${cat} label=${cat} size="sm"
+                  value=${filters.categories.includes(cat)}
+                  onChange=${checked => toggleCategory(cat, checked)} />`)}
+            </${VStack}>
+            <${Text} type="supporting" size="sm">선택한 조건은 이 브라우저에 저장돼요.</${Text}>
+            <${Button} label="필터 초기화" variant="ghost" size="sm" onClick=${() => setFilters(DEFAULT_FILTERS)} />
+            ${HAS_FEEDBACK && h`
+              <${Divider} />
+              <${VStack} gap=${2}>
+                <${Text} type="supporting" size="sm">써보니 어땠나요? 1분이면 끝나요.</${Text}>
+                <${Button} label="피드백 남기기" variant="primary" width="100%" href=${FEEDBACK_URL} target="_blank" rel="noopener noreferrer" />
+              </${VStack}>`}
+          </${VStack}>
+        `;
+      }
+
+      function DetailRow({label, children}) {
+        return h`
+          <${VStack} gap=${1}>
+            <${Text} type="supporting" size="sm">${label}</${Text}>
+            <${Text}>${children}</${Text}>
+          </${VStack}>
+        `;
+      }
+
+      function NoticeDrawer({notice, isOpen, setIsOpen}) {
+        const deadlineText = n => n.deadline === '상시' ? '상시 모집'
+          : !n.deadline ? '본문에 마감일이 없어요. 원문을 확인하세요.'
+          : `${n.deadline} (${ddayLabel(n)})`;
+        return h`
+          <${Drawer} isOpen=${isOpen} onOpenChange=${setIsOpen} label="공지 상세" width=${440}>
+            ${notice && h`
+              <${Layout}
+                header=${h`<${DrawerHeader} title=${notice.title} subtitle=${`${notice.category} · ${notice.source}`} onOpenChange=${setIsOpen} hasDivider />`}
+                content=${h`
+                  <${LayoutContent}>
+                    <${VStack} gap=${5}>
+                      <${HStack} gap=${2}>
+                        <${Token} label=${notice.category} color=${CATEGORY_COLOR[notice.category]} />
+                        <${Token} label=${ddayLabel(notice)} color=${ddayColor(notice)} />
+                      </${HStack}>
+                      <${DetailRow} label="누가">${notice.who}</${DetailRow}>
+                      <${DetailRow} label="혜택">${notice.benefit}</${DetailRow}>
+                      <${DetailRow} label="마감">${deadlineText(notice)}</${DetailRow}>
+                      <${DetailRow} label="신청방법">${notice.howToApply}</${DetailRow}>
+                      <${DetailRow} label="대상">${`학년: ${targetText(notice.grades)} · 단과대: ${targetText(notice.colleges)}`}</${DetailRow}>
+                      ${notice.contact && h`<${DetailRow} label="문의처">${notice.contact}</${DetailRow}>`}
+                      <${DetailRow} label="게시일 · 출처">${`${notice.postedAt} · ${notice.source}`}</${DetailRow}>
+                      <${Text} type="supporting" size="sm">누가·혜택·마감 등은 본문에서 자동으로 뽑은 내용이라 틀릴 수 있어요. 신청 전에 원문을 꼭 확인하세요.</${Text}>
+                    </${VStack}>
+                  </${LayoutContent}>`}
+                footer=${h`
+                  <${LayoutFooter} hasDivider>
+                    <${Button} label="원문 보기" variant="primary" width="100%" href=${notice.url} target="_blank" rel="noopener noreferrer" />
+                  </${LayoutFooter}>`}
+              />`}
+          </${Drawer}>
+        `;
+      }
+
+      function App() {
+        const [notices, setNotices] = useState(null);
+        const [lastUpdated, setLastUpdated] = useState('');
+        const [loadError, setLoadError] = useState(false);
+        const [filters, setFilters] = useState(loadFilters);
+        const [sort, setSort] = useState('마감임박순');
+        const [selected, setSelected] = useState(null);
+        const [isOpen, setIsOpen] = useState(false);
+        useEffect(() => saveFilters(filters), [filters]);
+
+        useEffect(() => {
+          fetch(`${DATA_URL}?v=${Date.now()}`)
+            .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+            .then(data => {
+              setNotices(data.notices.filter(n => n.opp).map(toNotice));
+              const d = new Date(data.updated_at);
+              setLastUpdated(`${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`);
+            })
+            .catch(() => setLoadError(true));
+        }, []);
+
+        // 좁은 화면(모바일)에서는 필터를 사이드바 대신 본문 위에 놓는다
+        const narrowQuery = '(max-width: 768px)';
+        const [isNarrow, setIsNarrow] = useState(() => window.matchMedia(narrowQuery).matches);
+        useEffect(() => {
+          const mq = window.matchMedia(narrowQuery);
+          const onChange = e => setIsNarrow(e.matches);
+          mq.addEventListener('change', onChange);
+          return () => mq.removeEventListener('change', onChange);
+        }, []);
+
+        const visible = useMemo(() => {
+          const items = (notices || []).filter(n => {
+            if (n.closed || daysLeft(n) < 0 || isStale(n)) return false;
+            if (!filters.categories.includes(n.category)) return false;
+            if (filters.grade !== '전체' && n.grades !== '전체' && !n.grades.includes(Number(filters.grade))) return false;
+            if (filters.college !== '전체' && n.colleges !== '전체' && !n.colleges.includes(filters.college)) return false;
+            return true;
+          });
+          return sort === '마감임박순'
+            ? items.sort((a, b) => daysLeft(a) - daysLeft(b) || b.postedAt.localeCompare(a.postedAt))
+            : items.sort((a, b) => b.postedAt.localeCompare(a.postedAt) || b.id - a.id);
+        }, [notices, filters, sort]);
+
+        const thisWeek = useMemo(
+          () => visible.filter(n => daysLeft(n) <= 7).sort((a, b) => daysLeft(a) - daysLeft(b)),
+          [visible],
+        );
+        const open = n => { setSelected(n); setIsOpen(true); };
+
+        const body = loadError
+          ? h`<${Center} padding=${10}><${Text} type="supporting">공지를 불러오지 못했어요. 잠시 후 새로고침해 주세요.</${Text}></${Center}>`
+          : !notices
+          ? h`<${Center} padding=${10}><${Text} type="supporting">공지를 불러오는 중…</${Text}></${Center}>`
+          : h`
+            <${VStack} gap=${8}>
+              ${isNarrow && h`
+                <${Card}>
+                  <${FilterPanel} filters=${filters} setFilters=${setFilters} />
+                </${Card}>`}
+              <${Card} variant="blue">
+                <${VStack} gap=${4}>
+                  <${HStack} hAlign="between" vAlign="center" gap=${4}>
+                    <${Heading} level=${2}>이번 주 마감 ${thisWeek.length}건</${Heading}>
+                    <${Text} type="supporting" size="sm">오늘부터 7일 이내</${Text}>
+                  </${HStack}>
+                  ${thisWeek.length === 0
+                    ? h`<${Text} type="supporting">이번 주에 마감되는 공지가 없어요.</${Text}>`
+                    : h`
+                      <${Grid} columns=${{minWidth: 240, max: 3}} gap=${3}>
+                        ${thisWeek.map(n => h`<${NoticeCard} key=${n.id} notice=${n} onOpen=${open} />`)}
+                      </${Grid}>`}
+                </${VStack}>
+              </${Card}>
+
+              <${VStack} gap=${4}>
+                <${HStack} hAlign="between" vAlign="center" gap=${4}>
+                  <${Heading} level=${2}>전체 ${visible.length}건</${Heading}>
+                  <${DropdownMenu}
+                    button=${{label: `정렬: ${sort}`, variant: 'ghost'}}
+                    items=${[
+                      {label: '마감임박순', onClick: () => setSort('마감임박순')},
+                      {label: '최신 게시순', onClick: () => setSort('최신 게시순')},
+                    ]} />
+                </${HStack}>
+                ${visible.length === 0
+                  ? h`
+                    <${Center} padding=${10}>
+                      <${VStack} gap=${3} hAlign="center">
+                        <${Text} type="supporting">조건에 맞는 공지가 없어요. 필터를 바꿔보세요.</${Text}>
+                        <${Button} label="필터 초기화" onClick=${() => setFilters(DEFAULT_FILTERS)} />
+                      </${VStack}>
+                    </${Center}>`
+                  : h`
+                    <${Grid} columns=${{minWidth: 260, max: 3}} gap=${4}>
+                      ${visible.map(n => h`<${NoticeCard} key=${n.id} notice=${n} onOpen=${open} />`)}
+                    </${Grid}>`}
+              </${VStack}>
+            </${VStack}>`;
+
+        return h`
+          <${Theme} theme=${neutralTheme} mode="light">
+            <${Layout}
+              height="auto"
+              contentWidth=${1280}
+              header=${h`
+                <${LayoutHeader} hasDivider padding=${6}>
+                  <${HStack} hAlign="between" vAlign="center" gap=${4} wrap="wrap">
+                    <${VStack} gap=${1}>
+                      <${Heading} level=${1}>제주대 기회 공지 모아보기 (가칭)</${Heading}>
+                      <${Text} type="supporting">흩어진 기회를 한 곳에, 나에게 맞는 것만, 한 줄로.</${Text}>
+                    </${VStack}>
+                    <${VStack} gap=${1} hAlign="end">
+                      <${Text} type="supporting" size="sm">마지막 업데이트 ${lastUpdated || '-'}</${Text}>
+                    </${VStack}>
+                  </${HStack}>
+                </${LayoutHeader}>`}
+              start=${!isNarrow && h`
+                <${LayoutPanel} width=${280} hasDivider padding=${6} role="complementary" label="내 조건 필터" isScrollable=${false}>
+                  <${FilterPanel} filters=${filters} setFilters=${setFilters} />
+                </${LayoutPanel}>`}
+              content=${h`
+                <${LayoutContent} padding=${isNarrow ? 4 : 6}>
+                  ${body}
+                </${LayoutContent}>`}
+            />
+            <${NoticeDrawer} notice=${selected} isOpen=${isOpen} setIsOpen=${setIsOpen} />
+          </${Theme}>
+        `;
+      }
+
+      createRoot(document.getElementById('root')).render(h`<${App} />`);
+    </script>
+  </body>
+</html>
