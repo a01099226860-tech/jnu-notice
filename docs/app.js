@@ -5,6 +5,19 @@
   const NEW_DAYS = 2;       // 며칠 이내 게시글에 NEW 표시
   const URGENT_DAYS = 7;    // '이번 주 마감' 범위
   const RED_DAYS = 3;       // D-3 이하는 빨간 배지
+  // GitHub Actions 자동 수집 시각 (.github/workflows/crawl.yml 의 cron "7,37 * * * *" 과 맞출 것)
+  const UPDATE_MINUTES = [7, 37];
+  const nextUpdate = () => {
+    const now = new Date();
+    for (let h = 0; h <= 1; h++) {
+      for (const m of UPDATE_MINUTES) {
+        const t = new Date(now);
+        t.setHours(now.getHours() + h, m, 0, 0);
+        if (t > now) return t;
+      }
+    }
+    return now;
+  };
 
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => [...document.querySelectorAll(s)];
@@ -478,7 +491,9 @@
       state.news = news;
       data.notices.forEach((n) => bySeq.set(n.seq, n));
       const up = new Date(data.updated_at);
+      const fmt = (d) => d.toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
       $("#updated").textContent = `${up.toLocaleString("ko-KR", { month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" })} 업데이트 · 공지 ${data.notices.length}건`;
+      $("#schedule").textContent = `30분마다 자동 업데이트 (매시 ${UPDATE_MINUTES.map((m) => `${m}분`).join("·")}) · 다음 업데이트 ${fmt(nextUpdate())}쯤`;
       applyHash(false);
     })
     .catch(() => {
