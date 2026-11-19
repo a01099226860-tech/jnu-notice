@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-19T10:03:01+09:00",
+ "updated_at": "2026-11-19T17:38:06+09:00",
  "queries": [
   "대학생 혜택",
   "대학생 장학금 신청",
@@ -8,6 +8,74 @@
   "청년 할인 혜택"
  ],
  "items": [
+  {
+   "title": "광양시 (재)백운장학회, 2026년 장학생 552명 선정",
+   "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5EemtURy1sTlhXSWxiMXRVa2wwLTdtQzY4aF85Ql9ZSHh4X1piWmxTcTBJd3N6NWh6eXJFZFYtajduVVViZXNQYUxPb3g?oc=5",
+   "source": "시사일보",
+   "published": "2026-11-19T15:41+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "제주에너지공사, 청년 면접비 ‘탐나는전’으로 지원…지역상권과 상생",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE0tNVdNQjUtb3lnYjhDb3ROVUZGVmVUajB4VzFRdDBYMGhxNjJaOGlSWTZVSDgtRFpBWkpuTUwyQlE1QlMyV1VFdFBDcnBCSnFlcXRRR29kaTFEWU9CTXZmX0Z4SFhZbWlsaHZyUmhLSG0xZw?oc=5",
+   "source": "에너지데일리",
+   "published": "2026-11-19T15:10+09:00",
+   "tags": [
+    "제주"
+   ]
+  },
+  {
+   "title": "비수도권 대학생 학자금대출 이자면제 8구간까지 확대…7·8구간도 혜택",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4zMFlaeFVPUk5LY0s2ODc5NEcxbFQ1Y2F4aXpPY2RwTUVYTXUzMXVKbTZYcGlMME9lNXpzdEFuMWZTSVpOOENZNVlacWpPN2xGUDBXaTh1UGpoal9YRVNFa0hzUE9hcXowaWc?oc=5",
+   "source": "www.hidomin.com",
+   "published": "2026-11-19T14:47+09:00",
+   "tags": []
+  },
+  {
+   "title": "한국장학재단, 비수도권 대학생 학자금대출 이자면제 확대",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1RVjJIY3N0VGdTMU9yS3RRUkhtemlyd0hPOTJrZXpDaGY0TGczYndlQjJFWndaZ0J6QlVLdzhIZG43dUVldkhnVEF6OGtjU2ZuNHRUZHh0WTJodlVOTnJLMXVodEZ5clJlNEtOOWZn?oc=5",
+   "source": "국제뉴스",
+   "published": "2026-11-19T13:30+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "고창군장학재단, 내년 장학사업비 13억원 편성…교육지원 확대",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4xNjBSRDVsTDZFaTRNdWZ0ZWJ2TVJPd3RoSXdjV1RyRmo3TWlzcU4tTmI2QWdlNVBuZVlWMGxWSzRJdUJhNURiS2ZPUGM5LWptSE80aW5qYUJZYXVRVktFVmJIQQ?oc=5",
+   "source": "더펜뉴스",
+   "published": "2026-11-19T10:52+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "금감원이 짚어주는 청년 자동차보험 할인 꿀팁",
+   "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE8ySUdUMzhwZFVZOFdlYzFDd0t6c3RocGZCV0RVclhTd05JUXBueVVtVzBxVThSR2pIejFIbHhYaVpES2JheG91aFFxZWpzeUdfanc?oc=5",
+   "source": "네이버페이 머니스토리",
+   "published": "2026-11-19T10:50+09:00",
+   "tags": [
+    "할인"
+   ]
+  },
+  {
+   "title": "KT, 수능 마친 청년 고객에 통신·생활 혜택 확대…'Y수능 페스타' 진행",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFA1dmh1eGpnNUxoakZjbzlVR2x6TlRITjMyTHFGcllYc2p4aDlZUzk2VzM4WDdLSjBqcXhMLTVKUUNSa3d2TnJ4VEwtMEtGYVN4OHoxM1hOdzdZcnhZZGg1cXVwV1lXV1BEVWhPTnhTbw?oc=5",
+   "source": "이코노미사이언스",
+   "published": "2026-11-19T10:33+09:00",
+   "tags": []
+  },
+  {
+   "title": "\"일한 경험 없다고 안 된대요\"… 내년 '청년 첫 취업지원' 신설 추진, 구직수당 월 65만원·6개월 390만원",
+   "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE81dDRBTlBJWXVBb3pmNk1oUDYwWnVZR3ZqT01mWmtMd3lscm91ZHNFVmQxeThSOXc4UUNJaTl4RzFxODFEX1ZuTTE4UFluZ3pHQm9vaHdGYnRLZTJ3UTNmeDZqREVfcjFSWTN6ZDZYbHpxTEE?oc=5",
+   "source": "경제시그널",
+   "published": "2026-11-19T10:00+09:00",
+   "tags": [
+    "지원금"
+   ]
+  },
   {
    "title": "롯데하이마트, 수험생·학생 대상 IT가전 할인 행사…노트북·태블릿 혜택 확대",
    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9SckVUU2lDeG56M24wclF0aTVOekR6TzI1Sk53ZGJkOWVVZFYyc1NUdVBQb3NWcnVHcUxkUXpWYWlHblhLTmd3NF9VREtPcWd3RVFGb3JaMnY2QU9xTkRLVHFrX0xlYmIwS0E2TE9kb9IBb0FVX3lxTE9SckVUU2lDeG56M24wclF0aTVOekR6TzI1Sk53ZGJkOWVVZFYyc1NUdVBQb3NWcnVHcUxkUXpWYWlHblhLTmd3NF9VREtPcWd3RVFGb3JaMnY2QU9xTkRLVHFrX0xlYmIwS0E2TE9kbw?oc=5",
@@ -119,6 +187,15 @@
    "published": "2026-11-17T11:29+09:00",
    "tags": [
     "지원금"
+   ]
+  },
+  {
+   "title": "명인제약이 키운 612명의 꿈…누적 장학금 30억 육박",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBSWm9la0ZtbGVQWHpta01URWRlM0t4c1ZDM0FyakhUam83VXZqWjRheHhQUXV1WHRwdGJmOTBLSlpqNF9DYm5HOXRRSHFqTndWZ2VaSEJ3?oc=5",
+   "source": "데일리팜",
+   "published": "2026-11-17T10:54+09:00",
+   "tags": [
+    "장학금"
    ]
   },
   {
@@ -240,6 +317,15 @@
    "source": "Naver Blog",
    "published": "2026-11-15T23:16+09:00",
    "tags": []
+  },
+  {
+   "title": "[한입신문 장학브리핑] 11월 셋째 주.. 학자금대출 17일 신청 접수 마감, 장학금과 겨울 기숙사 일정 확인",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1ubGhDbGtzMFFkWmdCZmYwRFQ2SDk3ZFFGR2J1dDhlTmdxYmdRanBVN2c0TFZnNGoxMVpOd2JYa3cybmJITW02dEFmRWhsemNRazRrUDhpVm12S1kyWXg1UGdsaVRSOG85Zmc?oc=5",
+   "source": "한입신문",
+   "published": "2026-11-15T15:59+09:00",
+   "tags": [
+    "장학금"
+   ]
   },
   {
    "title": "영국, 청년 실업 증가 속 청년 취업 보장 프로그램 확대",
