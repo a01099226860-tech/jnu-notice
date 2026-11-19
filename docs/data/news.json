@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-19T04:00:50+09:00",
+ "updated_at": "2026-11-19T10:03:01+09:00",
  "queries": [
   "대학생 혜택",
   "대학생 장학금 신청",
@@ -8,6 +8,24 @@
   "청년 할인 혜택"
  ],
  "items": [
+  {
+   "title": "롯데하이마트, 수험생·학생 대상 IT가전 할인 행사…노트북·태블릿 혜택 확대",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9SckVUU2lDeG56M24wclF0aTVOekR6TzI1Sk53ZGJkOWVVZFYyc1NUdVBQb3NWcnVHcUxkUXpWYWlHblhLTmd3NF9VREtPcWd3RVFGb3JaMnY2QU9xTkRLVHFrX0xlYmIwS0E2TE9kb9IBb0FVX3lxTE9SckVUU2lDeG56M24wclF0aTVOekR6TzI1Sk53ZGJkOWVVZFYyc1NUdVBQb3NWcnVHcUxkUXpWYWlHblhLTmd3NF9VREtPcWd3RVFGb3JaMnY2QU9xTkRLVHFrX0xlYmIwS0E2TE9kbw?oc=5",
+   "source": "더퍼블릭",
+   "published": "2026-11-19T07:05+09:00",
+   "tags": [
+    "할인"
+   ]
+  },
+  {
+   "title": "롯데하이마트, 수능 끝난 학생 잡는다…IT가전 할인전 개막",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE54V3Q3TmdoWWI2ZTZaRy02M3VwZnhkWmhKM1hwTEVtN25FUVFsOVNTNzVBX2pmMUd5WTBOUl8zb0xmMmxVWVY4ZURPSGQxN2RaQURqSEl4Rmk?oc=5",
+   "source": "더트래커",
+   "published": "2026-11-19T06:00+09:00",
+   "tags": [
+    "할인"
+   ]
+  },
   {
    "title": "부산 북구, 성인 앞둔 청년에게 기차여행 선물…최대 10만원 지급",
    "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBucEU3bHdDVFkwcWpkV0dHd1FtNTlrYWtJOUpXa3M1cldzTURsWEdFSkRUVXVDVXRGTzBLVS02SHFNeEZwMU1oN1prekU5NXJMejgtT3BWd2pUR21Ub3I0?oc=5",
@@ -327,6 +345,22 @@
    "published": "2026-11-12T13:32+09:00",
    "tags": [
     "장학금"
+   ]
+  },
+  {
+   "title": "[청년의 도전을 응원하는 민선9기 오산시 ②] 오산시, 청년 주거·학업·문화 지원 확대…미래인재 성장 뒷받침",
+   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBwQ3pvNzZWQ01wVkUtc1k4ZVV0QURXQ1ZfUkFWR01WM0tyb0tQZERSZ0o2bmtYOERqdGc4MTAyR21wQkxhQWtCSFVLUndVRjNBdXhzeTJhRGdobGNfMWh0LVdBYmM?oc=5",
+   "source": "중앙뉴스타임스",
+   "published": "2026-11-12T12:50+09:00",
+   "tags": []
+  },
+  {
+   "title": "제주도, 전국 최초 국제기구 청년 연수 프로그램 운영 호응",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBsSGRNMV9mN2xXRUlDNEJmZHJyWGEwcFk5UU1TclVUS05ZdzBFREZzRjk2b0xFaFF3OHNfbzRvWE5YY1JXYnVrXzBhTXJvdXA3cF83Z1p4WjQyQmQ4UldkSWxHcXN0dEVBdGg4Zg?oc=5",
+   "source": "삼다일보",
+   "published": "2026-11-12T12:11+09:00",
+   "tags": [
+    "제주"
    ]
   },
   {
