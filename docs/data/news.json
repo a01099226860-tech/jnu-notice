@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-19T17:38:06+09:00",
+ "updated_at": "2026-11-20T03:08:56+09:00",
  "queries": [
   "대학생 혜택",
   "대학생 장학금 신청",
@@ -8,6 +8,34 @@
   "청년 할인 혜택"
  ],
  "items": [
+  {
+   "title": "백운장학회, 장학생 552명 선발",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE4yUmdSVnM2RFFVMlMxTklqb0Yzd25Sc0g0YzBVaDBpT3VwcXRLYVBtZFZ2Szl5dFRTVGVBcC14aXdSNEpPaWtFOWlrY3l3a2ZtWGxDX3ZnczJwckh2ZXdpWDlrOGdpZEFLc193?oc=5",
+   "source": "광양경제신문",
+   "published": "2026-11-19T22:05+09:00",
+   "tags": [
+    "장학금",
+    "모집"
+   ]
+  },
+  {
+   "title": "참빛영동도시가스, 대학생 8명에 장학금 전달",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1JQzJCOWhsSU1ZdjItb1FKS3o5Y3FSOXZIcWJ4NjJ6OFc1elpCTHhRRHE1VjViMmgwRFNwdElKeFhYVEFrcHNjc3RUdzNCV0tsSzdPR0NvXzNpaFdHZjhaMmJGdmhpN0VXSjhsMjVB?oc=5",
+   "source": "투데이에너지",
+   "published": "2026-11-19T17:25+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "(재)백운장학회, 2026년 장학생 552명 선정",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE54MXVzUFY5U0ZaMlZ4RGVlUlE1dXZqdlBJRHMyTW13bGlab2dJMEE3OUljcW9GOUVtMGhlS0lTcVRoVlZUOUY1aDU3V2ZVcDFxbS1ubElmaGVRWHR4V3NuUWdjSlotOV9aWXhpQm5B0gFuQVVfeXFMTngxdXNQVjlTRloyVnhEZWVSUTV1dmp2UElEczJNbXdsaVpvZ0kwQTc5SWNxb0Y5RW0waGVLSVNxVGhWVlQ5RjVoNTdXZlVwMXFtLW5sSWZoZVFYdHhXc25RZ2NKWi05X1pZeGlCbkE?oc=5",
+   "source": "광양시민신문",
+   "published": "2026-11-19T17:14+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
   {
    "title": "광양시 (재)백운장학회, 2026년 장학생 552명 선정",
    "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5EemtURy1sTlhXSWxiMXRVa2wwLTdtQzY4aF85Ql9ZSHh4X1piWmxTcTBJd3N6NWh6eXJFZFYtajduVVViZXNQYUxPb3g?oc=5",
@@ -369,6 +397,13 @@
    ]
   },
   {
+   "title": "19세 청년 문화예술 관람비 지원한다",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBHUUpudXRMSFJTaFYtMEhSSXRmd0Vab2RPbzBrTXA1cm52SWRSbDA5SGREejYyX0N3MWg2TkV4UDByc0N3dzNWdzJRRHZFeXVBdWQzVGdBc1pqUng4UmFsaFZWbGFqMDdlTDJVdnRiMFg?oc=5",
+   "source": "원주투데이",
+   "published": "2026-11-13T17:00+09:00",
+   "tags": []
+  },
+  {
    "title": "청년재단, 은행과 손잡고 고립청년 지원…최저 연 0.1% 대출까지",
    "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE96aHJnQWs3UGUzaFUwczJSdFY3SW5GS3BfaDFmVFU2SHJfaDFjb1JwLVVCaTZkcTljcFBXZElRcEFfSUdnTlBKSGpIOFU0SlV3cU44bHNiRV9Dc3VWMEZseFRpck5VdEJwYk1TVnhzWdIBc0FVX3lxTFA5YVBDRGtMX00xc2Z1T2VocGs2UFV4c1FBVGU5b3lxQUxudF9fWDFqVThhOWFwb2FuVEZmNVZOeW9fc3V5dHQ5Q3NRSFhRYWs1aTUwM3hOckZEa2IwNDhvTm1VY1o0eEdhZENKbDlvNW16VkU?oc=5",
    "source": "뉴스웍스",
@@ -380,6 +415,20 @@
    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFA4MUZFYmxRaE5TOUtPcTdXZG5mbnZzLUxCbDNEY2ZVVEZkeWN4RUpDSEFWamlPWjFGOXJHd3B6MUJjLU1qbU01TWFsRng1elVUaGNTd0o1SXN4bWNHeTlEcGJsZHYyZklTWXY5ai0tRzE3QdIBckFVX3lxTFA4MUZFYmxRaE5TOUtPcTdXZG5mbnZzLUxCbDNEY2ZVVEZkeWN4RUpDSEFWamlPWjFGOXJHd3B6MUJjLU1qbU01TWFsRng1elVUaGNTd0o1SXN4bWNHeTlEcGJsZHYyZklTWXY5ai0tRzE3QQ?oc=5",
    "source": "시선뉴스",
    "published": "2026-11-13T14:27+09:00",
+   "tags": []
+  },
+  {
+   "title": "오창석 청년재단 이사장 취임 1주년…청년대출·생계 지원 등 확대",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE54RWhGUTFTQ0lnTFJLb2l6QWR6bGF6ZTFWWmFhRkhiVHdDclhTRTRUN2hNeEh4T2xQZDVCNXZWckFBdGo1b01nclJOUHBjM29XajQyRkF3RUg5MklmclpmNTlkWdIBZ0FVX3lxTE1XWkVpRTF2ZFdFcTVHMzVuWHY5WFBaazNaTGNkSDlFbW9hWjRTTElsQXZxTGpTS1Z0cTRqMzFwcjAyWmI3OHBIWVRfVjNmTVh4cThIR0MyQWVETDVOMWVzQ0k0YUxZVGM?oc=5",
+   "source": "ABC뉴스",
+   "published": "2026-11-13T14:20+09:00",
+   "tags": []
+  },
+  {
+   "title": "청년재단, 1년간 23건 업무협약… 금융·주거·지역 정착 지원 협력 확대",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQV29LTzlyUFQtcS1pd2x2UkZ2aE5WY0xOQnNaMDRCandwOE9QMTQ1Wm10NHl5RXdKNDFvS3QtVlR4VGJBNkhjREVKc0g1QlVlMFFiUlI2LWpBRjZSR2oyeV9pSDFUVWwxQXUxQkNNTHBCRHd4dVdNcnFTUzNhZUZQTGg3bGtPSnfSAXtBVV95cUxOTVc0V3hRQjI3TkNER2VOOVlIY0JoZnZDdnZGTFZJVmdSWXAxUjJ2dWVkZXl1enVlUnM2VDFKMUpCVFpocHI5Q3FuQnJGbDJkWENmaDJhc0c2VlFJallQanlrS3JWVDJqUHI4TjI5NlZhZkVjeXBxdkJkZVU?oc=5",
+   "source": "디지틀조선일보",
+   "published": "2026-11-13T13:32+09:00",
    "tags": []
   },
   {
