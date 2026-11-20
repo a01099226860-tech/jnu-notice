@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-20T09:51:45+09:00",
+ "updated_at": "2026-11-20T17:19:26+09:00",
  "queries": [
   "대학생 혜택",
   "대학생 장학금 신청",
@@ -8,6 +8,44 @@
   "청년 할인 혜택"
  ],
  "items": [
+  {
+   "title": "한국장학재단, 지역대학생 학자금대출 이자면제 확대… 8구간 이하까지 지원",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9ZRWxXZFJKNzkxQU9teHhUMmllUlNPaTRIWkhJVEJ3MEQwdHVMVTRLdHpvcHItajlZdWkxRS1TNU5xWmpvamdqdFU0ajEwdXRNNUNTMy1wMzdJcEhnRGpBNHNJdE16WEJkcWQ3M3RyM3bSAXRBVV95cUxObG5WNGNkZVZpNnVwemRhRnVGWVJlTDdLa1NDcDM3MG9ybVFNVThJR1BUZ3FIM3hyeHlnbU5hRTY0MW1pTHM3RFdpa2doYndkVlJTcEJBSVhzdnBuQkNrTUdWVVR1aGZ1dmlBS1NqSEEzOUNBSg?oc=5",
+   "source": "포인트데일리",
+   "published": "2026-11-20T15:49+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "유엔남구대학로 자율상권, 청년 창업 지원…27일까지 참여자 모집",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBmc0ZHZ0E5WUlRbFBMUkstUWhtOTF6SXIyMm1QQ2VfY3BPQUY3V0ROYzhXTVh2Q2Q2VjNvM1dtbkRHQkdkZm8zbnk2N05Ca3VDcllqakE3Q0l6NmJwdWU4ZVFvWEdxaElYakIw?oc=5",
+   "source": "내외경제TV",
+   "published": "2026-11-20T13:50+09:00",
+   "tags": [
+    "모집"
+   ]
+  },
+  {
+   "title": "유엔남구대학로 자율상권, 청년 창업가 10개 팀 모집…1억 5,500만원 지원",
+   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE54cG84LU4xbFFDbDJxT19jY3BYVGdRNmRrSGJXQ1JmRWRZN0FBMzdVbWRTaTVNM3dwa3hlWkxJcS1TN0tib2lOUTdQV3RXeWpNZEJUd3hZS2thcU9IdnfSAVZBVV95cUxNU0VsbG5OS1VleG9jUkY5dnZ0TWp2YkZhQldVMTlVTUhyV2RITm5pbUMyQWN3ODNoWkVBYVFwOHpsTVFjWG5TbTJmMVZFd08yWEdTNk9aQQ?oc=5",
+   "source": "피앤피뉴스",
+   "published": "2026-11-20T13:49+09:00",
+   "tags": [
+    "지원금",
+    "모집"
+   ]
+  },
+  {
+   "title": "애플, 수능·연말 맞아 학생 할인…맥북 에어 최대 40만원↓ - 머니투데이",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5rblk5UXNsWlBkUnkyMGJKOEw2ZjVjUEtrVFpVMDd0TjFjV0hUTDlBRUxBcHcxcFdrS1REcFEta3VCX3ZKS0thM0JaZjlfU3JET21BVk5Ib2ZvbkF2VUdnOXNkU1JBM1NHOFRSTtIBbEFVX3lxTE5rblk5UXNsWlBkUnkyMGJKOEw2ZjVjUEtrVFpVMDd0TjFjV0hUTDlBRUxBcHcxcFdrS1REcFEta3VCX3ZKS0thM0JaZjlfU3JET21BVk5Ib2ZvbkF2VUdnOXNkU1JBM1NHOFRSTg?oc=5",
+   "source": "머니투데이",
+   "published": "2026-11-20T10:08+09:00",
+   "tags": [
+    "지원금",
+    "할인"
+   ]
+  },
   {
    "title": "백운장학회, 장학생 552명 선발",
    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE4yUmdSVnM2RFFVMlMxTklqb0Yzd25Sc0g0YzBVaDBpT3VwcXRLYVBtZFZ2Szl5dFRTVGVBcC14aXdSNEpPaWtFOWlrY3l3a2ZtWGxDX3ZnczJwckh2ZXdpWDlrOGdpZEFLc193?oc=5",
@@ -158,9 +196,9 @@
   },
   {
    "title": "[카드뉴스] 혼인지원금부터 최저임금·청년 연금까지... 2027년 달라지는 제도",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1udndqOFc3cU1JSDBDMGNrQ1pqdElEcmoyaVVJang1SGk5OGlxc3pzdlZXSEhiUEZxUmFTd3FMYU9jVHdpS2tNdm1LdGhoOXREa25JZ2ZUZVlGLVBheGdvT21LWmRwektKVUthbUZ0WdIBckFVX3lxTE0wSU1nWEFjVGlsbzJxbTd0S1lYT2tmVjg3U0Vxc1o1cDRLZTM1UXNQcXNkazB4bkJTdTBudmx5clVhOFpESGI1NUFoNkhWNnp3czhfajBWM2VwLUoySENVamF6M1lBMHhseVQ4M29DNnBNQQ?oc=5",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE0wSU1nWEFjVGlsbzJxbTd0S1lYT2tmVjg3U0Vxc1o1cDRLZTM1UXNQcXNkazB4bkJTdTBudmx5clVhOFpESGI1NUFoNkhWNnp3czhfajBWM2VwLUoySENVamF6M1lBMHhseVQ4M29DNnBNQdIBckFVX3lxTE0wSU1nWEFjVGlsbzJxbTd0S1lYT2tmVjg3U0Vxc1o1cDRLZTM1UXNQcXNkazB4bkJTdTBudmx5clVhOFpESGI1NUFoNkhWNnp3czhfajBWM2VwLUoySENVamF6M1lBMHhseVQ4M29DNnBNQQ?oc=5",
    "source": "시선뉴스",
-   "published": "2026-11-18T10:59+09:00",
+   "published": "2026-11-18T11:09+09:00",
    "tags": [
     "지원금"
    ]
@@ -654,40 +692,6 @@
    "published": "2026-11-11T16:47+09:00",
    "tags": [
     "장학금",
-    "지원금"
-   ]
-  },
-  {
-   "title": "대구 달서구, 청년부부 결혼축하금 지원 올해 종료…12월 15일까지 신청",
-   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4wLXlBZ3JFT3k0WGxHRVBfYzVHeVZXX0Ezbll5dUo1cU56T29VR1V4UldoTXlWTTJTdTVSblJ0SWhfN0UtNDNhek9XdUFYMl95MEY5MVJBNUpOUQ?oc=5",
-   "source": "경북매일",
-   "published": "2026-11-11T16:21+09:00",
-   "tags": []
-  },
-  {
-   "title": "오스템임플란트, 2026 치과대학 장학증서 수여식 개최",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBTN0VKeUpPb09iMmpDM2dhb1NxVEhNZXRLeGxBREppQ2lzTUo2elM4bGhoODl6U1J2MUN5VmxqLVlKT001aHN3ZDlMMmZud3dpcGNfSWNSNFVtWlNFU1RubUNqeUxBa21GZHN2dXFuZEU?oc=5",
-   "source": "덴탈아리랑",
-   "published": "2026-11-11T14:01+09:00",
-   "tags": [
-    "장학금"
-   ]
-  },
-  {
-   "title": "경기도 청년 자격증 지원금 30만 원, 성남은 100만 원이라는데",
-   "link": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTFBVb3dTVG1rMEdoeXJpdHdVU2dPZjcxb082R3JpOGxnVXZXRGZTbVNjS3ZieF9BYVY0amRuWElNWHh6WmM?oc=5",
-   "source": "한국공공정책신문",
-   "published": "2026-11-11T13:22+09:00",
-   "tags": [
-    "지원금"
-   ]
-  },
-  {
-   "title": "횡성 대학생 등록금 최대 300만 원 지원…16일 신청 마감",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBPdGVBVDhVRExzRHlJWWlGVV9EYlQ2aFRNQnVBZXdUVGxockVQNndOd2V2WHFPdnZhX2NfMnYzVUFhSEY4VVBhaFNLdzhrc0RkVFp4Z0ZBUjYzd21BNThLOE5id1k?oc=5",
-   "source": "서울경제TV",
-   "published": "2026-11-11T09:31+09:00",
-   "tags": [
     "지원금"
    ]
   }
