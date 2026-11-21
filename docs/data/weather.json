@@ -1,58 +1,58 @@
 {
- "updated_at": "2026-11-21T21:57+09:00",
+ "updated_at": "2026-11-22T05:00+09:00",
  "place": "제주 아라캠퍼스",
  "source": "MET Norway",
  "current": {
-  "temp": 5.0,
-  "wind": 7.3,
-  "humidity": 88,
-  "code": "lightrainshowers_night",
+  "temp": 4.4,
+  "wind": 5.5,
+  "humidity": 87,
+  "code": "lightrain",
   "icon": "🌦️",
-  "desc": "약한 소나기"
+  "desc": "약한 비"
  },
  "daily": [
   {
-   "date": "2026-11-21",
-   "min": 5,
-   "max": 5,
-   "rain_mm": 0.7,
-   "wind_max": 7.3,
-   "code": "lightrainshowers_night",
-   "icon": "🌦️",
-   "desc": "약한 소나기"
-  },
-  {
    "date": "2026-11-22",
-   "min": 3,
+   "min": 4,
    "max": 9,
-   "rain_mm": 0.0,
-   "wind_max": 5.2,
-   "code": "partlycloudy_day",
-   "icon": "⛅",
-   "desc": "구름 조금"
+   "rain_mm": 0.1,
+   "wind_max": 5.5,
+   "code": "cloudy",
+   "icon": "☁️",
+   "desc": "흐림"
   },
   {
    "date": "2026-11-23",
-   "min": 3,
+   "min": 4,
    "max": 16,
-   "rain_mm": 4.9,
-   "wind_max": 11.0,
+   "rain_mm": 5.4,
+   "wind_max": 9.7,
    "code": "heavyrain",
    "icon": "🌧️",
    "desc": "강한 비"
   },
   {
    "date": "2026-11-24",
-   "min": 6,
-   "max": 14,
-   "rain_mm": 9.0,
-   "wind_max": 12.6,
+   "min": 5,
+   "max": 13,
+   "rain_mm": 9.4,
+   "wind_max": 14.0,
    "code": "lightrain",
    "icon": "🌦️",
    "desc": "약한 비"
+  },
+  {
+   "date": "2026-11-25",
+   "min": 6,
+   "max": 11,
+   "rain_mm": 0.0,
+   "wind_max": 4.9,
+   "code": "partlycloudy_day",
+   "icon": "⛅",
+   "desc": "구름 조금"
   }
  ],
  "alerts": [
-  "☔ 우산 챙기세요 (예상 강수 0.7mm)"
+  "🌂 약한 비 가능성, 접이식 우산 추천"
  ]
 }
