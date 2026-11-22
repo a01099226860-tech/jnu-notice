@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-22T16:20:58+09:00",
+ "updated_at": "2026-11-23T00:36:04+09:00",
  "queries": [
   "대학생 혜택",
   "대학생 장학금 신청",
@@ -8,6 +8,29 @@
   "청년 할인 혜택"
  ],
  "items": [
+  {
+   "title": "청년 주거지원 신청 전 반드시 확인해야 할 소득 및 재산 기준 정보",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOMktDZVNMekVtYS1XOUFiWXdweGNMWUdQRFo5TmhiQXUtTWRCR1hfYzFUbXhQeFRCMkNkWHBzdGJDRzZvVDJka2dVZzFXUWNlZFpkbzhCYjhBS3lFbklzc0Z1UEc4UkxIMEpOOVFpdEV2RlNnR2V0a3RoaVpWdTRJNUV3TDRrY2gtZ3MwVXpKZjRzVy1tV3ZUMGV6VjBfWUdfTGRoc0I1M1NBcWZ0?oc=5",
+   "source": "블로그차트",
+   "published": "2026-11-22T21:59+09:00",
+   "tags": []
+  },
+  {
+   "title": "LH 청년전세임대주택 자격 요건과 신청부터 계약까지 핵심 정리",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9OSUUwWGc2TWl0TFBmUUpRalpscUxYazIzVGpSWHhEcFdDNVJxWkRIb2lKd1lUQWF0cHZ2TFpKUWJic1RxaE0zMDdRM09jNTBSS21n?oc=5",
+   "source": "블로그차트",
+   "published": "2026-11-22T16:06+09:00",
+   "tags": []
+  },
+  {
+   "title": "[한입신문 장학브리핑] 11월 넷째 주.. 국가장학금 24일 신청 시작, 대학 장학금과 겨울 기숙사 마감 확인",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBoc0IxcDZMZWhVNzJzaXpJbEZfZVJ2MThkUHZVOXdabEpGMXA0aGFER29BdXluTG1lMnlrc3dBWUU3TlNFYWk0dUZ0T1RTd3QyNllmRXk3RzcyVTdtLXRKQm4wMDFhNE43c0E?oc=5",
+   "source": "한입신문",
+   "published": "2026-11-22T15:33+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
   {
    "title": "제주 청년농업인과 영농 정착 위한 기술 지원 방향 논의",
    "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1xekphYXlXdGdHY3RVandJc3pmMFVJcWRsMnFDUkZlSG1QMmN1ZGgzbW51X3dXREc3R1VqUWl1RV8zUFFkRHdKYWYxdWhOY1dNZzNvTlpPTVJObkV6RVJhY2l3?oc=5",
@@ -32,6 +55,15 @@
    "source": "블로그차트",
    "published": "2026-11-22T11:19+09:00",
    "tags": []
+  },
+  {
+   "title": "lh 청년매입임대주택 3차 서울 지역 예비입주자 모집 핵심 요건과 혜택",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE14blpYU1NhZGl2NUNVTHM4bFFOQUpRMUJyWVljSEpRbG1HRnpTMkhhUklac0F1dkt3ZFNUQXhucHoybERnQmlCV2V1N21LYlBnZWxn?oc=5",
+   "source": "블로그차트",
+   "published": "2026-11-22T11:15+09:00",
+   "tags": [
+    "모집"
+   ]
   },
   {
    "title": "신안군장학재단, 2026년 하반기 장학생 605명 선발",
@@ -82,6 +114,15 @@
    "published": "2026-11-21T11:16+09:00",
    "tags": [
     "장학금",
+    "지원금"
+   ]
+  },
+  {
+   "title": "청년 중소기업 지원금 입사 후 놓치면 후회할 핵심 요건과 신청법",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1mcEpjWFlkdWIwbkJHN1E5SUw3X2RyWlJnMXVGNkN6LXhPZ0o4TUVFT2Z3QlotN0JnRGo1N3ZIbjFsdVNCMmhXaFV3dVNvZmMwNjhBc1JaS0k5QQ?oc=5",
+   "source": "블로그차트",
+   "published": "2026-11-21T10:13+09:00",
+   "tags": [
     "지원금"
    ]
   },
@@ -158,6 +199,15 @@
    "source": "일간제주",
    "published": "2026-11-20T17:44+09:00",
    "tags": []
+  },
+  {
+   "title": "9월부턴 '기후동행패스'쓰세요… 청년 혜택 39세까지 확대",
+   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5Vb012eGhiV0tmaklHQWtqVVdSZE45Q3Z4bWZkenV3c0RDZ0hUTWgzbDg3Zm0zcGlyNnAxRFdObTVHQkhIQndGZlEySjk1bnAzU2owWko0d2NLc2JaeF9QLTNRb1hBUWs?oc=5",
+   "source": "은평시민신문",
+   "published": "2026-11-20T17:00+09:00",
+   "tags": [
+    "할인"
+   ]
   },
   {
    "title": "신안군장학재단, 하반기 장학생 605명에 7억 3500만원 장학금 지급",
@@ -336,6 +386,15 @@
    "published": "2026-11-19T13:30+09:00",
    "tags": [
     "장학금"
+   ]
+  },
+  {
+   "title": "부산 북구, 18세 청년 기차여행비 최대 10만 원 지원",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBUX2hmNUpzUkQ4SEVhTVRDLUNFYkVDX2NpQzhRZWZuZldXUVlMSU11Tjg2aDBOaWM5RFFkT0xMbG9aM1BTcFhtd25Obmd6X2tET1NiRjB0X3JjUGZ3QVhDOFNEQzFwTWgwUEJrd2tB?oc=5",
+   "source": "www.gukjenews.com",
+   "published": "2026-11-19T13:00+09:00",
+   "tags": [
+    "지원금"
    ]
   },
   {
@@ -654,60 +713,6 @@
    "published": "2026-11-17T08:49+09:00",
    "tags": [
     "장학금"
-   ]
-  },
-  {
-   "title": "유한양행 유한재단 \"가족돌봄청소년·청년 자립 위해 6.6억 지원\"",
-   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBncmdiS21IYzVPWlVEenpjcjk4aVR2VEFMcl9DMGNBdWwxMEtMcm1obXpFRzRvRUIxSFRVRW03Q1JFQnM4cW9OdExPcmlMN1ZVdHVDS3hBVEViZw?oc=5",
-   "source": "한국경제",
-   "published": "2026-11-17T08:40+09:00",
-   "tags": []
-  },
-  {
-   "title": "유한재단, 가족돌봄 청소년·청년 276명 생활비 지원",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE80WlZ6cXRYQVZfSzI2RXF5Y2YyQTNSNldmY0VSTEU5SGpYeFUzZ3N0WklYelUwY2RjNGpZTHYwTmRab1E3T29BMUR4UC0yNHRwQngtOHdndExYNG9fZjU1Wmd1N2o?oc=5",
-   "source": "메디포뉴스",
-   "published": "2026-11-17T08:19+09:00",
-   "tags": []
-  },
-  {
-   "title": "성산 청년들이 만든 특별한 로컬 여행…‘성산살롱’ 청년 기획 프로그램 성황",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBWSFd2YkN6MHVBM0NCQ1l1Z0pjYzE4TDdaa3dLYVVtdGtzSnVTamh3Q0w1dlk2ZjJwRkNvejJVX1VDbXFqRjlYSlMwdEw1S05OS3lVTldKdC1xLU9aTjZ1NThrWlQ0WmdLZ1JaNg?oc=5",
-   "source": "뉴스N제주",
-   "published": "2026-11-17T02:23+09:00",
-   "tags": []
-  },
-  {
-   "title": "청년 주택 정책 총정리 전월세 대출부터 청약 신청까지 A to Z : 부동산",
-   "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5pV1ZoOUt2QURJSVdUX2RZWnQtRWxQc2hObElQN0xIczFuNV9NbUhQSS05bWVTRVFmTHhTRkxhbGNwdzh3VTltbFBxWQ?oc=5",
-   "source": "재경일보",
-   "published": "2026-11-16T18:26+09:00",
-   "tags": []
-  },
-  {
-   "title": "배움을 나눈 서울런 멘토에 100만 원! '서울선순환인재장학금' 신청",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE8tdy1UclVxaDk0YlBzbUw1akN2dnZJZFFjNktMbnNsOEgyWl93dGVCOHlpeXZwalU5Vlk0RWxYR29kQ2x1QmJCeTdHUXFjWXhobmlXNTlablU?oc=5",
-   "source": "내 손안에 서울",
-   "published": "2026-11-16T15:08+09:00",
-   "tags": [
-    "장학금"
-   ]
-  },
-  {
-   "title": "[금융家 브리핑] 수험생부터 군 장병까지···금융권, 청년 맞춤 혜택 확대",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4zcEEwT2k5eEZjcXhaRmtvNFJaQndwb3A0b012LUo1TjIzS1JVUnNqOFhBNzRzYXdhNVp5UEw3Tm1rcEpiMGNwTUswZmxKWGltT212RkFCdTZFazNyQXJLb0MwbFpfZy1JRWlTZw?oc=5",
-   "source": "스마트비즈",
-   "published": "2026-11-16T14:46+09:00",
-   "tags": []
-  },
-  {
-   "title": "서울미래인재재단, 서울런 우수 멘토 대학생 50명에 장학금 100만 원씩…서울선순환인재장학금 장학생 선발",
-   "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTFBQcWJBTkJCOHRxeEFHTElRTHpZTVlINnZhdEZPYm4zSUtoNHMyRU1SVWFVYlZyTGZBUlZZWjNGbXJPOVRmNzFN?oc=5",
-   "source": "정필",
-   "published": "2026-11-16T11:34+09:00",
-   "tags": [
-    "장학금",
-    "모집"
    ]
   }
  ]
