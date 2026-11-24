@@ -480,7 +480,10 @@
 
   // ================================================================ 시작
   const bust = `?v=${Date.now()}`;
-  const getJSON = (p) => fetch(`data/${p}${bust}`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
+  // 오프라인 저장본(scripts/bundle.py)은 데이터가 파일 안에 들어 있음
+  const getJSON = (p) => window.__OFFLINE
+    ? (window.__OFFLINE[p] ? Promise.resolve(window.__OFFLINE[p]) : Promise.reject(new Error("없음")))
+    : fetch(`data/${p}${bust}`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
 
   getJSON("weather.json").then(renderWeather)
     .catch(() => { $("#weather").innerHTML = `<div class="weather-loading">날씨 정보를 불러오지 못했어요.</div>`; });

@@ -44,7 +44,8 @@ def main() -> int:
         return 0
 
     print("4/4 GitHub 에 올리는 중…")
-    git("add", "docs/data")
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "bundle.py")], cwd=ROOT, env=env)
+    git("add", "docs/data", "docs/jnu-notice-offline.html")
     from datetime import datetime
     git("commit", "-q", "-m", f"data: 공지 업데이트 {datetime.now():%Y-%m-%d %H:%M}")
     r = git("push", "-q", check=False)
