@@ -60,7 +60,7 @@
         Theme, Layout, LayoutHeader, LayoutContent, LayoutPanel, LayoutFooter,
         VStack, HStack, StackItem, Grid, Center, Divider,
         Heading, Text, Button, Token, Card, ClickableCard,
-        RadioList, RadioListItem, Selector, CheckboxInput, DropdownMenu,
+        RadioList, RadioListItem, MultiSelector, CheckboxInput, DropdownMenu, Collapsible,
         Drawer, DrawerHeader,
       } from '@astryxdesign/core';
       import {neutralTheme} from '@astryxdesign/theme-neutral';
@@ -76,12 +76,69 @@
       const HAS_FEEDBACK = !FEEDBACK_URL.includes('REPLACE');
       const STALE_DAYS = 30; // 마감일이 없는 공지는 게시 후 이 기간까지만 보여줌
 
-      // 단과대 목록 — 기획 B·C가 실제 목록으로 확인·수정 (scraper/crawl.py 의 COLLEGES 와 맞출 것)
+      // ----------------------------------------------------------------
+      // 단과대 목록 — 제주대 조직도(2026. 7. 29. 현재) 기준 15개 대학 + 총장 직속 전공 2개
+      // (scraper/crawl.py 의 COLLEGES 와 이름을 맞출 것)
+      // match: 게시 부서(작성자)·본문 대상 문구에서 이 단과대를 알아보는 규칙 (소속 학과 이름 포함)
+      // phone: 행정실(없으면 학과사무실) 번호. 공식 사이트에 대학 대표번호가 없는 곳은 비워 둠
+      // ----------------------------------------------------------------
       const COLLEGES = [
-        '인문대학', '사회과학대학', '경상대학', '사범대학', '자연과학대학',
-        '공과대학', '생명자원과학대학', '해양과학대학', '수의과대학',
-        '의과대학', '간호대학', '생활과학대학',
+        {name: '인문대학', phone: '064-754-2736', match: /인문대학|독일학과|중어중문학과/},
+        {name: '사회과학대학', phone: '064-754-2902', match: /사회과학대학/},
+        {name: '경상대학', phone: '064-754-3101', match: /경상대학/},
+        {name: '사범대학', phone: '064-754-3203', match: /사범대학|교육학과/},
+        {name: '자연과학대학', phone: '064-754-3502', match: /자연과학대학|화학코스메틱/},
+        {name: '공과대학', phone: '064-754-8321', match: /공과대학|전기공학과/},
+        {name: '생명자원과학대학', phone: '', match: /생명자원과학대학/},
+        {name: '해양과학대학', phone: '', match: /해양과학대학|해양생명과학과/},
+        {name: '수의과대학', phone: '064-754-3360', match: /수의과대학|수의예과|수의학과/},
+        {name: '의과대학', phone: '064-754-8005', match: /(^|[^수])(의과대학|의예과|의학과)/},
+        {name: '간호대학', phone: '064-754-3880', match: /간호대학|간호학과/},
+        {name: '약학대학', phone: '064-754-8192', match: /약학대학|약학과/},
+        {name: '교육대학', phone: '064-754-4800', match: /교육대학(?!원)/},
+        {name: '예술디자인대학', phone: '', match: /예술디자인대학/},
+        {name: '미래융합대학', phone: '064-754-3901', match: /미래융합대학/},
+        {name: '자유전공(총장 직속)', phone: '064-754-2068', match: /(^|[^자])자유전공/},
+        {name: '글로벌자율전공(총장 직속)', phone: '064-754-4640', match: /글로벌자율전공/},
       ];
+      const COLLEGE_NAMES = COLLEGES.map(c => c.name);
+
+      // ----------------------------------------------------------------
+      // 센터·부서 — 공지를 올린 곳 = 문의할 곳. 위에서부터 먼저 맞는 것으로 정한다.
+      // 번호는 제주대 홈페이지·각 부서 사이트에 공개된 업무 담당 번호 (2026-11 확인)
+      // ----------------------------------------------------------------
+      const CENTER_GROUPS = ['학생지원·장학', '취업·진로·현장실습', '국제교류·어학', '학습·비교과·도서관', '상담·건강·인권', '사업단', '입학·행정', '단과대·학과'];
+      const CENTERS = [
+        {id: 'scholarship', group: '학생지원·장학', name: '학생복지과 장학 담당', task: '교내·교외·국가장학, 학자금대출, 근로장학', phone: '064-754-2051', match: /학생복지과\s*\(장학|^장학/},
+        {id: 'student', group: '학생지원·장학', name: '학생복지과 학생지원 담당', task: '대외활동·공모전·봉사, 학생증, 학생 행사', phone: '064-754-2042', match: /학생복지과|학생지원/},
+        {id: 'dorm', group: '학생지원·장학', name: '학생생활관', task: '기숙사 입주·생활 (입주 선발 4678, 수납·환불 2251)', phone: '064-754-4676', match: /생활관|^학생생활$/},
+        {id: 'job', group: '취업·진로·현장실습', name: '대학일자리플러스센터 · 진로취업과', task: '진로·취업 상담, 취업 프로그램·특강', phone: '064-754-2307', match: /일자리|진로취업/},
+        {id: 'fieldwork', group: '취업·진로·현장실습', name: '현장실습지원센터', task: '표준현장실습학기제, 인턴십', phone: '064-754-2623', match: /현장실습/},
+        {id: 'language', group: '국제교류·어학', name: '언어교육원', task: '외국어 프로그램·토익반 (한국어과정 2199)', phone: '064-754-2292', match: /언어교육원|토익/},
+        {id: 'intl', group: '국제교류·어학', name: '국제교류처 · 국제교류과', task: '교환학생·해외 교류수학 (단기 어학연수 8241)', phone: '064-754-2198', match: /국제교류(?!개발)|intl/i},
+        {id: 'academic', group: '학습·비교과·도서관', name: '교육혁신과 학사팀', task: '수업·학점, 국내 교류수학, 계절학기(2027)', phone: '064-754-2023', match: /교육혁신|학사팀/},
+        {id: 'learning', group: '학습·비교과·도서관', name: '교수학습지원센터 · 비교과교육센터', task: '학습 프로그램, 비교과 통합관리', phone: '064-754-2037', match: /교수학습|비교과/},
+        {id: 'library', group: '학습·비교과·도서관', name: '중앙도서관', task: '도서관 프로그램·이용 (전자자료 2229)', phone: '064-754-2220', match: /도서관|학술정보/},
+        {id: 'counsel', group: '상담·건강·인권', name: '학생상담센터', task: '개인·집단상담, 심리검사, 상담 프로그램', phone: '064-754-4475', match: /학생상담/},
+        {id: 'health', group: '상담·건강·인권', name: '건강증진센터', task: '건강검진·보건, 건강 프로그램', phone: '064-754-2059', match: /건강증진/},
+        {id: 'rights', group: '상담·건강·인권', name: '인권센터', task: '인권·성평등 상담, 인권 교육', phone: '064-754-3095', match: /인권센터/},
+        {id: 'rise', group: '사업단', name: 'RISE사업단 (구 앵커사업단)', task: '지역혁신 교육·프로젝트 프로그램', phone: '064-754-4540', match: /RISE|앵커|런케이션|늘봄/i},
+        {id: 'glocal', group: '사업단', name: '글로컬대학사업단', task: '글로컬대학 프로그램·공모', phone: '064-754-4953', match: /글로컬/},
+        {id: 'admission', group: '입학·행정', name: '입학관리과', task: '입학 관련 학생 모집 (홍보대사·서포터즈 등)', phone: '064-754-3990', match: /입학/},
+        {id: 'media', group: '입학·행정', name: '신문방송출판부 (제주대미디어)', task: '학생기자·방송국 모집', phone: '064-754-2277', match: /신문방송/},
+        {id: 'service', group: '입학·행정', name: '종합서비스센터', task: '증명서 발급, 민원', phone: '064-754-3030', match: /종합서비스/},
+        // 단과대·학과가 직접 올린 공지 → 상세 화면에 그 단과대 행정실 번호를 함께 보여준다
+        {id: 'college', group: '단과대·학과', name: '단과대·학과 사무실', task: '공지를 올린 단과대 행정실·학과사무실', phone: '',
+          match: new RegExp(`${COLLEGES.map(c => c.match.source).join('|')}|학과|학부|행정실`)},
+      ];
+      // 위 목록에 없는 학과·연구소·외부기관 게시글
+      const OTHER_CENTER = {id: 'other', name: '기타 부서·외부기관', task: '', phone: ''};
+      const CENTER_OPTIONS = [
+        ...CENTER_GROUPS.map(g => ({type: 'section', title: g, options: CENTERS.filter(c => c.group === g).map(c => ({value: c.id, label: c.name}))})),
+        {type: 'divider'},
+        {value: OTHER_CENTER.id, label: OTHER_CENTER.name},
+      ];
+      const DIRECTORY_NOTE = '제주대학교 홈페이지·각 부서 사이트에 공개된 번호예요 (2026년 11월 확인). 바뀌었을 수 있으니 연결이 안 되면 학교 대표번호 064-754-2114로 문의하세요.';
 
       const CATEGORIES = ['장학', '국제교류', '비교과', '행사'];
       const CATEGORY_COLOR = {장학: 'blue', 국제교류: 'purple', 비교과: 'green', 행사: 'orange'};
@@ -93,6 +150,20 @@
       // deadline: 'YYYY-MM-DD' / '상시' / null(본문에 마감일 없음)
       // ================================================================
       const CHECK = '원문에서 확인';
+      // 게시 부서(작성자) → 센터 매칭. 작성자가 '대학본부'처럼 포괄적이면 제목 앞 (부서명)·문의처 문구로 한 번 더 찾는다
+      const GENERIC_AUTHOR = /^(대학본부|관리자|제주대학교|총무과?|학생복지과)$/;
+      const findCenter = text => CENTERS.find(c => c.match.test(text));
+      function centerOf(n) {
+        const author = (n.author || '').replace(/^제주대학교\s*/, '');
+        const byAuthor = !GENERIC_AUTHOR.test(author) && findCenter(author);
+        return byAuthor || findCenter(`${n.org || ''} ${n.opp.contact || ''}`) || findCenter(author) || OTHER_CENTER;
+      }
+      // 수집기가 본문에서 찾은 단과대 + 게시 부서가 단과대 소속이면 그 단과대
+      function collegesOf(n) {
+        const text = [n.author || '', ...(n.opp.colleges === '전체' ? [] : n.opp.colleges)].join(' ');
+        const found = COLLEGES.filter(c => c.match.test(text)).map(c => c.name);
+        return found.length ? found : '전체';
+      }
       function toNotice(n) {
         const o = n.opp;
         return {
@@ -100,12 +171,14 @@
           category: o.category,
           title: n.title,
           grades: o.grades,
-          colleges: o.colleges,
+          colleges: collegesOf(n),
+          center: centerOf(n),
           who: o.who || CHECK,
           benefit: o.benefit || CHECK,
           deadline: n.deadline || (o.always ? '상시' : null),
           howToApply: o.how || CHECK,
-          contact: o.contact || n.author,
+          contact: o.contact || null, // 본문에 적힌 문의처 (없으면 담당 센터 번호로 안내)
+          author: n.author,
           postedAt: n.date,
           source: `제주대 공지사항 ${BOARD_NAME[n.cat] || ''} · ${n.author}`,
           url: n.url,
@@ -129,11 +202,17 @@
       // ================================================================
       // 필터 저장 (브라우저에만 저장, 실패해도 동작)
       // ================================================================
-      const STORE_KEY = 'jnu-opportunity-filters-v1';
-      const DEFAULT_FILTERS = {grade: '전체', college: '전체', categories: CATEGORIES};
+      // v2: 단과대·센터를 여러 개 고를 수 있게 바뀜 (빈 배열 = 전체)
+      const STORE_KEY = 'jnu-opportunity-filters-v2';
+      const DEFAULT_FILTERS = {grade: '전체', colleges: [], centers: [], categories: CATEGORIES};
       const loadFilters = () => {
-        try { return {...DEFAULT_FILTERS, ...JSON.parse(localStorage.getItem(STORE_KEY) || '{}')}; }
-        catch { return DEFAULT_FILTERS; }
+        try {
+          const f = {...DEFAULT_FILTERS, ...JSON.parse(localStorage.getItem(STORE_KEY) || '{}')};
+          // 목록이 바뀌어 없어진 값은 버린다
+          f.colleges = f.colleges.filter(c => COLLEGE_NAMES.includes(c));
+          f.centers = f.centers.filter(id => CENTERS.some(c => c.id === id) || id === OTHER_CENTER.id);
+          return f;
+        } catch { return DEFAULT_FILTERS; }
       };
       const saveFilters = f => { try { localStorage.setItem(STORE_KEY, JSON.stringify(f)); } catch {} };
 
@@ -153,6 +232,7 @@
                 <${Text} size="sm" maxLines=${1}><${Text} type="supporting" size="sm">누가 </${Text}>${notice.who}</${Text}>
                 <${Text} size="sm" maxLines=${1}><${Text} type="supporting" size="sm">혜택 </${Text}>${notice.benefit}</${Text}>
                 <${Text} size="sm" maxLines=${1}><${Text} type="supporting" size="sm">마감 </${Text}>${prettyDate(notice)}</${Text}>
+                <${Text} size="sm" maxLines=${1}><${Text} type="supporting" size="sm">문의 </${Text}>${notice.center.name}${notice.center.phone ? ` ☎ ${notice.center.phone}` : ''}</${Text}>
               </${VStack}>
             </${VStack}>
           </${ClickableCard}>
@@ -170,11 +250,29 @@
             <${RadioList} label="학년" value=${filters.grade} onChange=${v => setFilters(f => ({...f, grade: v}))} size="sm">
               ${['전체', '1', '2', '3', '4'].map(g => h`<${RadioListItem} key=${g} value=${g} label=${g === '전체' ? '전체 학년' : `${g}학년`} />`)}
             </${RadioList}>
-            <${Selector}
+            <${MultiSelector}
               label="단과대"
-              value=${filters.college}
-              onChange=${v => setFilters(f => ({...f, college: v}))}
-              options=${[{value: '전체', label: '전체 단과대'}, ...COLLEGES.map(c => ({value: c, label: c}))]}
+              description="여러 개 고를 수 있어요. 비워두면 전체."
+              placeholder="전체 단과대"
+              value=${filters.colleges}
+              onChange=${v => setFilters(f => ({...f, colleges: v}))}
+              options=${COLLEGE_NAMES}
+              hasSearch hasClear hasSelectAll selectAllLabel="전체 선택"
+              searchPlaceholder="단과대 검색"
+              triggerDisplay="count"
+              formatValue=${items => items.length === 1 ? items[0].label : `단과대 ${items.length}곳`}
+              width="100%" />
+            <${MultiSelector}
+              label="센터·부서"
+              description="공지를 올린 부서 기준이에요. 비워두면 전체."
+              placeholder="전체 센터·부서"
+              value=${filters.centers}
+              onChange=${v => setFilters(f => ({...f, centers: v}))}
+              options=${CENTER_OPTIONS}
+              hasSearch hasClear hasSelectAll selectAllLabel="전체 선택"
+              searchPlaceholder="센터·부서 검색"
+              triggerDisplay="count"
+              formatValue=${items => items.length === 1 ? items[0].label : `센터·부서 ${items.length}곳`}
               width="100%" />
             <${VStack} gap=${2}>
               <${Text} type="label">분야</${Text}>
@@ -204,6 +302,74 @@
         `;
       }
 
+      const telHref = p => `tel:${p.replace(/[^\d]/g, '')}`;
+      const Phone = ({phone}) => h`<a href=${telHref(phone)}>☎ ${phone}</a>`;
+
+      // 문의처: ① 공지 본문에 적힌 문의처 ② 공지를 올린 센터·부서(담당 업무·대표번호) ③ 특정 단과대 대상이면 그 단과대 행정실
+      function ContactBox({notice}) {
+        const c = notice.center;
+        const colleges = notice.colleges === '전체' ? [] : COLLEGES.filter(x => notice.colleges.includes(x.name) && x.phone);
+        return h`
+          <${Card} variant="muted" padding=${4}>
+            <${VStack} gap=${3}>
+              <${Text} type="label">어디에 물어보면 되나요?</${Text}>
+              ${notice.contact && h`
+                <${VStack} gap=${1}>
+                  <${Text} type="supporting" size="sm">공지에 적힌 문의처</${Text}>
+                  <${Text}>${notice.contact}</${Text}>
+                </${VStack}>`}
+              <${VStack} gap=${1}>
+                <${Text} type="supporting" size="sm">${c.phone ? '담당 센터·부서' : '게시 부서'}</${Text}>
+                <${Text} weight="semibold">${c.phone ? c.name : notice.author}</${Text}>
+                ${c.task && h`<${Text} size="sm">${c.task}</${Text}>`}
+                ${c.phone ? h`<${Text} size="sm"><${Phone} phone=${c.phone} /></${Text}>`
+                  : !colleges.length && h`<${Text} type="supporting" size="sm">학교 대표번호 <${Phone} phone="064-754-2114" /> 로 걸면 부서에 연결해 줘요.</${Text}>`}
+              </${VStack}>
+              ${colleges.map(x => h`
+                <${VStack} gap=${1} key=${x.name}>
+                  <${Text} type="supporting" size="sm">${x.name} 행정실</${Text}>
+                  <${Text} size="sm"><${Phone} phone=${x.phone} /></${Text}>
+                </${VStack}>`)}
+            </${VStack}>
+          </${Card}>
+        `;
+      }
+
+      // 부서별 문의처 안내 (본문 아래) — 분야별로 묶어서 보여준다
+      function Directory() {
+        return h`
+          <${Card}>
+            <${Collapsible} trigger=${h`<${Heading} level=${2}>부서별 문의 전화번호</${Heading}>`}>
+              <${VStack} gap=${5} style=${{paddingTop: 'var(--spacing-4)'}}>
+                ${CENTER_GROUPS.filter(g => CENTERS.some(c => c.group === g && c.phone)).map(g => h`
+                  <${VStack} gap=${2} key=${g}>
+                    <${Text} type="label">${g}</${Text}>
+                    <${Grid} columns=${{minWidth: 260, max: 3}} gap=${3}>
+                      ${CENTERS.filter(c => c.group === g).map(c => h`
+                        <${VStack} gap=${0} key=${c.id}>
+                          <${Text} weight="semibold" size="sm">${c.name}</${Text}>
+                          <${Text} type="supporting" size="sm">${c.task}</${Text}>
+                          ${c.phone && h`<${Text} size="sm"><${Phone} phone=${c.phone} /></${Text}>`}
+                        </${VStack}>`)}
+                    </${Grid}>
+                  </${VStack}>`)}
+                <${VStack} gap=${2}>
+                  <${Text} type="label">단과대 행정실</${Text}>
+                  <${Grid} columns=${{minWidth: 200, max: 4}} gap=${3}>
+                    ${COLLEGES.filter(c => c.phone).map(c => h`
+                      <${VStack} gap=${0} key=${c.name}>
+                        <${Text} weight="semibold" size="sm">${c.name}</${Text}>
+                        <${Text} size="sm"><${Phone} phone=${c.phone} /></${Text}>
+                      </${VStack}>`)}
+                  </${Grid}>
+                </${VStack}>
+                <${Text} type="supporting" size="sm">${DIRECTORY_NOTE}</${Text}>
+              </${VStack}>
+            </${Collapsible}>
+          </${Card}>
+        `;
+      }
+
       function NoticeDrawer({notice, isOpen, setIsOpen}) {
         const deadlineText = n => n.deadline === '상시' ? '상시 모집'
           : !n.deadline ? '본문에 마감일이 없어요. 원문을 확인하세요.'
@@ -225,7 +391,7 @@
                       <${DetailRow} label="마감">${deadlineText(notice)}</${DetailRow}>
                       <${DetailRow} label="신청방법">${notice.howToApply}</${DetailRow}>
                       <${DetailRow} label="대상">${`학년: ${targetText(notice.grades)} · 단과대: ${targetText(notice.colleges)}`}</${DetailRow}>
-                      ${notice.contact && h`<${DetailRow} label="문의처">${notice.contact}</${DetailRow}>`}
+                      <${ContactBox} notice=${notice} />
                       <${DetailRow} label="게시일 · 출처">${`${notice.postedAt} · ${notice.source}`}</${DetailRow}>
                       <${Text} type="supporting" size="sm">누가·혜택·마감 등은 본문에서 자동으로 뽑은 내용이라 틀릴 수 있어요. 신청 전에 원문을 꼭 확인하세요.</${Text}>
                     </${VStack}>
@@ -276,7 +442,9 @@
             if (n.closed || daysLeft(n) < 0 || isStale(n)) return false;
             if (!filters.categories.includes(n.category)) return false;
             if (filters.grade !== '전체' && n.grades !== '전체' && !n.grades.includes(Number(filters.grade))) return false;
-            if (filters.college !== '전체' && n.colleges !== '전체' && !n.colleges.includes(filters.college)) return false;
+            // 단과대: 전체 대상 공지는 항상 보이고, 특정 단과대 공지는 고른 단과대와 겹칠 때만
+            if (filters.colleges.length && n.colleges !== '전체' && !n.colleges.some(c => filters.colleges.includes(c))) return false;
+            if (filters.centers.length && !filters.centers.includes(n.center.id)) return false;
             return true;
           });
           return sort === '마감임박순'
@@ -338,6 +506,8 @@
                       ${visible.map(n => h`<${NoticeCard} key=${n.id} notice=${n} onOpen=${open} />`)}
                     </${Grid}>`}
               </${VStack}>
+
+              <${Directory} />
             </${VStack}>`;
 
         return h`

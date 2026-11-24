@@ -255,10 +255,12 @@ def guess_org(title: str) -> str | None:
 
 # ---------------------------------------------------------------- 기회 공지 정보 (opportunity 페이지용)
 # 분야: 장학 / 국제교류 / 비교과 / 행사. 기회 성격이 아닌 공지(등록금, 채용, 시설 안내 등)는 None.
+# 제주대 조직도(2026. 7. 29. 현재) 기준 15개 대학. docs/opportunity/index.html 의 COLLEGES 와 맞출 것
+# (총장 직속 자유전공·글로벌자율전공, 학과 이름으로 단과대 찾기는 화면 쪽에서 처리)
 COLLEGES = [
     "인문대학", "사회과학대학", "경상대학", "사범대학", "자연과학대학",
     "공과대학", "생명자원과학대학", "해양과학대학", "수의과대학",
-    "의과대학", "간호대학", "생활과학대학",
+    "의과대학", "간호대학", "약학대학", "교육대학", "예술디자인대학", "미래융합대학",
 ]
 OPP_INTL = re.compile(r"국제교류|교환학생|해외|어학연수|글로벌|유학|외국어|방문학생|복수학위")
 OPP_PROGRAM = re.compile(r"모집|프로그램|특강|캠프|교육|참가|멘토|멘티|아카데미|공모|서포터즈|기자단|체험|연수|클래스|워크숍|봉사")
@@ -312,7 +314,7 @@ def extract_opp(title: str, author: str, cat_key: str, lines: list[str]) -> dict
 
     who = _field(lines, r"(?:지원|신청|참가|참여|모집|선발|수혜)?\s*(?:대상|자격)(?:\s*및\s*인원)?")
     target_lines = [title] + [l for l in lines[:80] if re.search(r"대상|자격|모집|선발|학년", l)]
-    colleges = [c for c in COLLEGES if any(c in t for t in target_lines + [author])]
+    colleges = [c for c in COLLEGES if any(re.search(rf"{c}(?!원)", t) for t in target_lines + [author])]  # 교육대학원 ≠ 교육대학
     return {
         "category": category,
         "grades": _grades(target_lines),
