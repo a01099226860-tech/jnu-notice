@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-24T07:13:00+09:00",
+ "updated_at": "2026-11-24T15:19:09+09:00",
  "queries": [
   "대학생 혜택",
   "대학생 장학금 신청",
@@ -8,6 +8,159 @@
   "청년 할인 혜택"
  ],
  "items": [
+  {
+   "title": "2027학년도 1학기 국가장학금 신청 시작…1월 7일 마감",
+   "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE84NHFUQWNTWVZJVWd1Z1F5bkY3ZGZzQ3ZzSVcwWUhNMndRSS1YQzB0Q1V3UXVac2tKdWtKMldPMUplQ0J0U21UN0tfaFp5Z1V3bFdCRHdiLWhmRllIc0lMUDlxcTJQbG5L?oc=5",
+   "source": "DWBNEWS",
+   "published": "2026-11-24T13:51+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "2027년 1학기 국가장학금 1차 신청 시작…예비 신입생도 가능",
+   "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBXWkZqcDRnd0JOUlhKQ004NVhpUERVaC1yUVJtMjZ5cWhlUWZtS1dNcTZ0ZE5fOEZEZ0VaQldoYlUybnFET1dNV2hINXI?oc=5",
+   "source": "한국IT산업뉴스",
+   "published": "2026-11-24T13:44+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "국가장학금 신청 오늘부터 시작, 2027년 1학기 신청기간·조건·지급일 확인하세요 > 뉴스",
+   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5lbHgyakV3WUpJbmc3eGZ2YnphajRSRjh0WThjWld4THFsazZzVVRMTzVSRTNZdjFsU3YxZUsxUHJiYzAzYXNwQ2JDMXFLV01uSE15UnJreG1td1Y3aDI2WkxaSUFsT1lpS1ZQMk94OGM2RnZNd3JISW5PWjY?oc=5",
+   "source": "진해신문",
+   "published": "2026-11-24T12:48+09:00",
+   "tags": [
+    "장학금",
+    "지원금"
+   ]
+  },
+  {
+   "title": "LH, 자립준비청년·가정 밖 청소년에 주거비 지원",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE91ellQbjd3QVYxZy1GVDJrT1hiMk9WTmljSkNTNUlBYVU2eXVXa3F3eTUzWmxENFUwVWRNWTFZM0w0YmR4czJ6S0d4U2RVUFNfN0dFMGFPSFJMQQ?oc=5",
+   "source": "브릿지경제",
+   "published": "2026-11-24T11:36+09:00",
+   "tags": []
+  },
+  {
+   "title": "서울·제주서 청년인턴 9명 모집…공무원연금공단 사회형평 채용",
+   "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBFWkF6azVqU244Z25GeEdHcDNOa0JXTW1ENTlLaVl3b3ByZVQyMkEzNFlQQV92LThWNXB4VnpZTmJjN2F1LUZYOW1sX1RYSkpQLWVQYWc0MTBQX0tFOWZmUGlfalItNFVWbDd4ODBhUjkzQdIBckFVX3lxTFBFWkF6azVqU244Z25GeEdHcDNOa0JXTW1ENTlLaVl3b3ByZVQyMkEzNFlQQV92LThWNXB4VnpZTmJjN2F1LUZYOW1sX1RYSkpQLWVQYWc0MTBQX0tFOWZmUGlfalItNFVWbDd4ODBhUjkzQQ?oc=5",
+   "source": "잡포스트",
+   "published": "2026-11-24T11:16+09:00",
+   "tags": [
+    "제주",
+    "모집"
+   ]
+  },
+  {
+   "title": "2027학년도 1학기 국가장학금 신청 시작-내년 1월 7일까지",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1vYlJlbGdTVlJvNzU1Q29jdm9iQ3cyZ29oTWM0ZFlIdnZJQVVtZ0J3SXZCLUdKeTBzYnpVekIxSVdITWQ3bTRKdE1aN1dXeDRsSWlZdzgwd09mdEtHS01XLXFEaE44dU4zTHcxZGFB?oc=5",
+   "source": "미디어파인",
+   "published": "2026-11-24T11:10+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "LH·한국증권금융 꿈나눔재단, 자립준비청년 주거안정 지원",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9mRWV5dUU2R3VRb3Z2SEc0aFlNWWNxOXlOM2kteGVVM20tblVDaDRpUWFEaGVqMnRPVDg5UkZoNU9nRlRrSWlCdmpjZlREb29xZTBCdGJ0RS11Skt6RnA3WlJDRk9jekh0cmfSAW5BVV95cUxOdzN5NnI5SndLTlFQUW9UTlFwb1EyTU5UaUp0dDRmd3JEdVJMYTFpcXh6XzdiLXBpSDBTTlFvM3VHbHJfNGhBYjBrYjk5QnBJS092ZVFjSnVROVhNb2VwWXluaWZ1bThOU2NuczVpZw?oc=5",
+   "source": "퍼블릭타임스",
+   "published": "2026-11-24T11:06+09:00",
+   "tags": []
+  },
+  {
+   "title": "(재)음성군장학회, 우수 학생 장학금 지원",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5IZXJPWlAxRXlPOGoyRlhGWHRReGJiblFQay16YXRPSjd4cm1GZ1cyYV9OZTF4eVQxbjVfQnJQWEU4bDFzTUxxZWlfQ09VOExiaVdzWVM5VVltMzdTcXpTRGhfTEROZGMyRENPbA?oc=5",
+   "source": "K-Life TV",
+   "published": "2026-11-24T10:43+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "국가장학금 문턱 낮췄다…대학생 지원 대상 확대 > 뉴스",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1uMnB1UnBja2huWWZsQXU5NkRsWmp6b081SWhTSll1cmlvRXNWSlJnLXFER2JtNmt3OVh5clVKQUVfUFlpbkdaMDZBQUlaM0ttQ01rOUNzRmZaLTRLaWJDSXpQU2Q5WEpMZFE2Vw?oc=5",
+   "source": "지데일리",
+   "published": "2026-11-24T10:35+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "[군산시] 청년문화예술패스 75매 추가 발급…문화비 최대 20만원 지원",
+   "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBMTEhqVExLY2Fnc0luSHVXQUlKYVRNZ2w5TVI4Rl9YY29YUDlYTFN0a2VqUEZ0NmVRdUhfMDNzWUF6V0VLYWozNC1zUnBGcGViazRaandlcDRMWEdGVGt2RjFhaUZ5dDQw?oc=5",
+   "source": "투데이안",
+   "published": "2026-11-24T10:13+09:00",
+   "tags": [
+    "지원금",
+    "할인"
+   ]
+  },
+  {
+   "title": "교육부와 한국장학재단, 2027학년도 1학기 국가장학금 신청기간 접수 시작",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE91dUR2a1NFb2dlRHN0c2xIaGVhSW1rdkpDWFNWckFKdThvN1RCR3hnX19pM05FRDJLMkRKQXV1MlVzbzlUWGdEOXlrYzljbjZ3aU05dU9IdTRuT2syMkJtS1NoeXQ2Q1YtUS1ETXVDRmQ?oc=5",
+   "source": "한국강사신문",
+   "published": "2026-11-24T09:55+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "층간소음 줄이면 관리비 할인..LH 청년주택건축대전 시상식 개최",
+   "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1oSndnUkdNaFdEUjJyb1FtRDR0c0dXbTZ3OF9HbFJqT2NwNGl1WE0xR3VLLWdpSV9lWGlBNnBNVHk5cFRsc1pYanYyRGhqWE1tQVE?oc=5",
+   "source": "한국정경신문",
+   "published": "2026-11-24T09:41+09:00",
+   "tags": [
+    "할인"
+   ]
+  },
+  {
+   "title": "2027년 1학기 국가장학금, 24일 오늘부터 내년 1월 7일까지 접수",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9GZFEySm1XUDFZLVd0QW9KNEMxbnMtaU1PNmkwQlJVT2xHUHNhanl6RURfX3EyczlrbjE0RXJIa0FGSzFrRnNRdTBTQUhBY3l4X0hyV3F3ZDdlWmEzYy1DRms2YmdnMHRPY0E?oc=5",
+   "source": "nbn 시사경제",
+   "published": "2026-11-24T09:30+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
+  {
+   "title": "[모집] 市, 청년문화예술패스 75매추가 지원…오는 12월10일까지 신청",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBMRVhxWkNVbnVEM3hVVC1uczhZVEZiUGRvWXc1RUNsYm9Cc3R2X3F0Yml3M2RYQURXano1NDZKRl95cjdmOXpMNEw4eXk5RnpxQl8yekJTdTBuLXJPc3FVdDNmTUpGTF9SaWxFbm8tOA?oc=5",
+   "source": "투데이 군산",
+   "published": "2026-11-24T09:00+09:00",
+   "tags": [
+    "할인",
+    "모집"
+   ]
+  },
+  {
+   "title": "LH, 자립준비청년 200명에 보증금·가전비 200만원 지원",
+   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9lMGlINHFtWmNtdTNsWjR2T2F3bFh6VnVfYl9fM0pIOERmeWNfaVJXejE0M1JMSXhVNlhsZXRwZEh0azVqZjZhd2d4aEdvclN1cDZ4UzBtbC15UQ?oc=5",
+   "source": "파이낸셜뉴스",
+   "published": "2026-11-24T08:54+09:00",
+   "tags": [
+    "지원금"
+   ]
+  },
+  {
+   "title": "LH-한국증권금융, 자립준비청년 주거비 지원… 1인당 200만원 지급",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPaGFDeTBLMFJsbkVpNUpPaFd3Ml9SYUV0c3ExcEplYVBBWm10SWN5eEk1dl85N0dXTy1ZNXFCNHRIZXBKNFRyOHU2QlBtT3RXV3ZkRHA4STlmbDAtVnJJeHJQX0lvcUZiTDFGTXZpeC0yZjhZai05VnBNSWNWS1ByNXYxTk9SZzRramdXRFo3SERaYWJranZJb9IBrAFBVV95cUxOSjc1WGJLd2JnazNFaEZqa0U5aTAtUEpQcjAtZ25rUnBpWlRsT2ZSTFRsMHB4YTZRUHhjdXFEdldZRjRUU3AtU1lRSlA0Y25GUEc2MWs3NWtBc1R1RW1wNEU3eC1haHN3VFl2T3AteGlmSDJURXlGNVhWaDNYQzFBMDVUbkRuVUJFM3J3UlRiOUQ3ZU1VN2NyS0pGSl8zVmZvemxhNjRNbGpOYm9l?oc=5",
+   "source": "Chosunbiz",
+   "published": "2026-11-24T08:40+09:00",
+   "tags": [
+    "지원금"
+   ]
+  },
+  {
+   "title": "2027학년도 1학기 국가장학금, 오늘부터 신청…내년 1월 7일 마감",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1BbG9Tb01qcV9yaWJYVGJibV9kMld3ZzBUVzV2c1FUZnRlalh2Qkl5R2l5bzhWWnJlRzVKVUtRWlZTWjhEMkNHWkhtNzNFZVBVWWZGczln?oc=5",
+   "source": "피앤피뉴스",
+   "published": "2026-11-24T07:53+09:00",
+   "tags": [
+    "장학금"
+   ]
+  },
   {
    "title": "2027학년도 1학기 국가장학금 1차 신청 개시, 5구간 개편·전액 지원 확대",
    "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5kU3pVMUF2UWtnd1J3YnQ3NndzYzJSdlFqeHpWR3k1ZWZKN2Jlbnp3dWQxdWMxSWpkYlR4Ul9aZS1NVmNOdlEzeG9ZTXk?oc=5",
@@ -148,6 +301,15 @@
    "source": "위키트리",
    "published": "2026-11-23T13:28+09:00",
    "tags": []
+  },
+  {
+   "title": "제주 청년 정착 위해 11개 기관 손잡았다…일자리·주거 넘어 생활 기반 지원",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5kb0REbXdkTW1fZFZ4ekEzalJ0SE1ZZ2pXRGR4aGx3VWk2Nk1GNllLZjl4LWlQUjkwMzBUeEhBVlpHdV8yRG9hLWR6NVBGc19BN05MUnlMblRUMExXamU4X2plbmd1NF9LVVHSAW5BVV95cUxPdzRvSHhvYmh6cHpJWHhYVTlRV3RBaUpzaW1rcndXQlZESnZ6OE53TWtSbWREZXNSeWJYMXNEQ0hKakZzWlFiMTg2LW1xMEowX1lxcDJWWERuMzJmSzNEdHB2SFRPSHFjTHZEeU5IZw?oc=5",
+   "source": "제주뉴스",
+   "published": "2026-11-23T13:28+09:00",
+   "tags": [
+    "제주"
+   ]
   },
   {
    "title": "유엔한국협회, ‘전국 대학생 유엔 토론 페스타’ 참가자 모집...25일까지 신청",
@@ -553,160 +715,6 @@
    "source": "블로그차트",
    "published": "2026-11-21T06:56+09:00",
    "tags": []
-  },
-  {
-   "title": "다자녀 국가장학금 셋째 전액 지원 조건과 신청 기간 확인하기",
-   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE12cm9DRDJsMEpteWJ3alYtcUZKemJsV2FzUWVQcGNpZzNudTl1X1g5RzRTQVF6NFR1dGMtS3pFRm9wT2w5aXFjeWhUNTBXQV9FNmVZ?oc=5",
-   "source": "블로그차트",
-   "published": "2026-11-21T05:43+09:00",
-   "tags": [
-    "장학금"
-   ]
-  },
-  {
-   "title": "[금상소] 수능 끝, 금융생활 시작⋯예비 대학생이 챙길 혜택은",
-   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9ib1MyRG5JQ05fcUZuT3N6aG9qSnhQWXU0bVN4VTJTRDRqV2ZLUWhTOHc5eGs0UU5pQWNzb05pc1IzX2tSXzAxNGQzUGg1NmxReXRlNQ?oc=5",
-   "source": "이투데이",
-   "published": "2026-11-21T05:00+09:00",
-   "tags": []
-  },
-  {
-   "title": "(재)신안군장학재단, 하반기 장학생 605명에 장학금 총 7억3,500만 원 지급",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5UZjdCMTFvNi1uVllRN21CUWhTV1V6UlBiWUZhR1dybFBRbjBwa2FFTmJEaGZIQ0lsSlJibXl2RFNRNlQzSVRDUUF4UU1DLTZWOUFzOTZxT0xramJXTVBhLUwyeGdNQmJ5VmJPNQ?oc=5",
-   "source": "호남타임즈",
-   "published": "2026-11-20T23:56+09:00",
-   "tags": [
-    "장학금",
-    "지원금"
-   ]
-  },
-  {
-   "title": "청년일자리도약장려금 2026년형 수도권 비수도권 지원금 차이와 신청 요건",
-   "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5R2ozTEJWSFNlR1dfOG1Bei0tSk5KLTUwd0U2UzNBaDlXd1pjQ1ZSSFAwTnRmMFRLZUF6RUhxTEtZWFlCSmFoY1l1aENyZ1VPMmQwWXhCTGxUdw?oc=5",
-   "source": "블로그차트",
-   "published": "2026-11-20T23:27+09:00",
-   "tags": [
-    "지원금"
-   ]
-  },
-  {
-   "title": "이상일 용인시장, 학생 체육공간 개선·대학생 주거 지원 챙겨",
-   "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE8wMk1QbHc3SkJfUGl2Wk8zNHA3LURJTFFFVTVrY1FfU0NlSTRabnN3YnBqRzNWbjZxOW5USkZrcG9hZmRLY1Z6NUtKNTAyN1B6dU1DTk9XZF8xX2stX282Ri0xMWRxMXY5V0I0QXRTNlFYbEdxRXpCaHBDWlo?oc=5",
-   "source": "비욘드포스트",
-   "published": "2026-11-20T18:25+09:00",
-   "tags": []
-  },
-  {
-   "title": "인천, 울산과 홈경기서 학생·수험생 50% 할인...윤정환 감독상 시상식도 개최 - 머니투데이",
-   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5VVGhaYTctT3BxMm5DVXUzZDBidHkydEpFX05lYzlpbnlMOUFvNEtTRTVKVHNnREljenkxNk12ZndwUFdfN3NUUkV0VmFxelhpZWZUNkVyNG1UckdKMElGYURnMmY0dFNxRG9PTlRvUdIBb0FVX3lxTE5VVGhaYTctT3BxMm5DVXUzZDBidHkydEpFX05lYzlpbnlMOUFvNEtTRTVKVHNnREljenkxNk12ZndwUFdfN3NUUkV0VmFxelhpZWZUNkVyNG1UckdKMElGYURnMmY0dFNxRG9PTlRvUQ?oc=5",
-   "source": "머니투데이",
-   "published": "2026-11-20T17:57+09:00",
-   "tags": [
-    "할인"
-   ]
-  },
-  {
-   "title": "김봉현“문화예술 예산 2% 확보 약속했지만 1.62%로 후퇴… 청년예술·전문인력·생활문화 지원까지 줄어”",
-   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5fdFdXRkZwd1E1OUVlSS1oeW1kNS1ZSVVZQ1pMcVFEakpNaENkM0ZSQnAwLUV0cDdrMHBNNThJMzZ5cmNmcGJzc1hDTU5wZHFWNTZBUXZkVmdsVWh1RzE2d3ZyTWJrREpDYWU0?oc=5",
-   "source": "일간제주",
-   "published": "2026-11-20T17:44+09:00",
-   "tags": []
-  },
-  {
-   "title": "강원도 ‘청년 재가 중증장애인을 위한 자산형성지원 사업’ 살펴보기",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5UX0V1UEYydmV3emY0TnRjNU5hWmI3N082dGdnRERxS3ZOVlduVi1DeUhvQXo4UF9iaVBKOHUzUWNiNkNJRUVrcTRQUjBvUVlURndXUWhqNzRMcDlETmtXbzZJaU5RMkpGTnlEeHpn0gFyQVVfeXFMT2FWWjBBcGdQODd5bXdXcDdtd3pIVWNrekx2OHd0U3ZhZVlDT3NqNFVrWTJHaTVxZzY0UEJIQU5jMDJvUDhhd0lOSU5KRnNGekpaUVdqOWtWV2xpdGZsaWo0aFlLTmpOYzVpcGppQ1hqUFJ3?oc=5",
-   "source": "에이블뉴스",
-   "published": "2026-11-20T17:34+09:00",
-   "tags": []
-  },
-  {
-   "title": "9월부턴 '기후동행패스'쓰세요… 청년 혜택 39세까지 확대",
-   "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5Vb012eGhiV0tmaklHQWtqVVdSZE45Q3Z4bWZkenV3c0RDZ0hUTWgzbDg3Zm0zcGlyNnAxRFdObTVHQkhIQndGZlEySjk1bnAzU2owWko0d2NLc2JaeF9QLTNRb1hBUWs?oc=5",
-   "source": "은평시민신문",
-   "published": "2026-11-20T17:00+09:00",
-   "tags": [
-    "할인"
-   ]
-  },
-  {
-   "title": "청년정착 지원 위한 맞춤형 주거지원정책 눈길",
-   "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5iZ3F0TXo1anI2RU4zZ19RWFRaLXFRaEd3YXVZdlVsc3FuOG04UlJTQ0NxZkZnaFB2SDhKNmZHZWdzTTJrazRpekFvNFFOQU5ybFB3NzZmYWxQS1VtTFdOZ05JWWZwZWp10gFsQVVfeXFMTU9EY3llLVl2TEVVVXlHSzluY1dTUGJsaWc5NUNxZ2lRNk5LYXpnRFpyUk5LNkIzcTEzeW1FdlpMN0c1Uk1OSUxGMUVVbU5IVW0xNjlMOVY3RDdPdnFMdW5tRkpVRDVKem0tT01Q?oc=5",
-   "source": "광양만신문",
-   "published": "2026-11-20T17:00+09:00",
-   "tags": []
-  },
-  {
-   "title": "신안군장학재단, 하반기 장학생 605명에 7억 3500만원 장학금 지급",
-   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1FUmF0b0pkYlk4V2R0ZjRlc3FsTDJFNWZRT3RXMG56c25JbFliWDNDbDBHcjVFUzJwSGNMTGhIclVaS1dXV3dzVEpVaUM1eVFMT3FWLXdIMUJtZmZz?oc=5",
-   "source": "피디언뉴스",
-   "published": "2026-11-20T16:56+09:00",
-   "tags": [
-    "장학금",
-    "지원금"
-   ]
-  },
-  {
-   "title": "한국장학재단, 지역대학생 학자금대출 이자면제 확대… 8구간 이하까지 지원",
-   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9ZRWxXZFJKNzkxQU9teHhUMmllUlNPaTRIWkhJVEJ3MEQwdHVMVTRLdHpvcHItajlZdWkxRS1TNU5xWmpvamdqdFU0ajEwdXRNNUNTMy1wMzdJcEhnRGpBNHNJdE16WEJkcWQ3M3RyM3bSAXRBVV95cUxObG5WNGNkZVZpNnVwemRhRnVGWVJlTDdLa1NDcDM3MG9ybVFNVThJR1BUZ3FIM3hyeHlnbU5hRTY0MW1pTHM3RFdpa2doYndkVlJTcEJBSVhzdnBuQkNrTUdWVVR1aGZ1dmlBS1NqSEEzOUNBSg?oc=5",
-   "source": "포인트데일리",
-   "published": "2026-11-20T15:49+09:00",
-   "tags": [
-    "장학금"
-   ]
-  },
-  {
-   "title": "참빛속초도시가스, 우수대학생에게 장학금 전달",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE81MDJiTzc3cnY4VVBxNzFtNFd0ei1rMFp2VGJMNzI2TnN0NmpCMUV5b244ZHB3UUNkcmRDZTRRZXZYdHltdWlPRDNrZXZZNUVnZW54THNjTzQ3eG00ME5SME9XWlhnSEdsOUp3Z3hR0gFuQVVfeXFMTzUwMmJPNzdydjhVUHE3MW00V3R6LWswWnZUYkw3MjZOc3Q2akIxRXlvbjhkcHdRQ2RyZENlNFFldlh0eW11aU9EM2tldlk1RWdlbnhMc2NPNDd4bTQwTlIwT1daWGdIR2w5SndneFE?oc=5",
-   "source": "가스신문",
-   "published": "2026-11-20T15:46+09:00",
-   "tags": [
-    "장학금"
-   ]
-  },
-  {
-   "title": "임실 애향장학회, 내년 장학생 130명 지원…봉황인재학당 개편",
-   "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE54LVhjWUw3MWxfUGtkcHdMYTNyWDM0N0hfV0JHNk9sSWRxcHJaeElMZ1J1dExzeUNUV2FXYllwdXItdDlwY0NnLUxVanprSEFRRVBSejhaQjBfeGNsaXNmOW51cWxHODdpNldnTGVVNWZLYlNUckYtZGVwZlp3Zw?oc=5",
-   "source": "더파워",
-   "published": "2026-11-20T14:11+09:00",
-   "tags": [
-    "장학금"
-   ]
-  },
-  {
-   "title": "유엔남구대학로 자율상권, 청년 창업 지원…27일까지 참여자 모집",
-   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBmc0ZHZ0E5WUlRbFBMUkstUWhtOTF6SXIyMm1QQ2VfY3BPQUY3V0ROYzhXTVh2Q2Q2VjNvM1dtbkRHQkdkZm8zbnk2N05Ca3VDcllqakE3Q0l6NmJwdWU4ZVFvWEdxaElYakIw?oc=5",
-   "source": "내외경제TV",
-   "published": "2026-11-20T13:50+09:00",
-   "tags": [
-    "모집"
-   ]
-  },
-  {
-   "title": "유엔남구대학로 자율상권, 청년 창업가 10개 팀 모집…1억 5,500만원 지원",
-   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE54cG84LU4xbFFDbDJxT19jY3BYVGdRNmRrSGJXQ1JmRWRZN0FBMzdVbWRTaTVNM3dwa3hlWkxJcS1TN0tib2lOUTdQV3RXeWpNZEJUd3hZS2thcU9IdnfSAVZBVV95cUxNU0VsbG5OS1VleG9jUkY5dnZ0TWp2YkZhQldVMTlVTUhyV2RITm5pbUMyQWN3ODNoWkVBYVFwOHpsTVFjWG5TbTJmMVZFd08yWEdTNk9aQQ?oc=5",
-   "source": "피앤피뉴스",
-   "published": "2026-11-20T13:49+09:00",
-   "tags": [
-    "지원금",
-    "모집"
-   ]
-  },
-  {
-   "title": "[청년의 빚과 빛③] 234만명 신청했는데 138만명 가입…청년 자산형성의 문턱",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE0tSnk3NXRGU2ZtWmlqb2t0dFQxTXo4OVJ6UzVfYzMwbm9YWXpPYmZON25BV0E2LVNSbXNTNlNnVFJMWFlrLTY1aTQ4VWt0SkVfWmR6VkhMejJMR3llM2plelFVcGY?oc=5",
-   "source": "https://www.ppss.kr/",
-   "published": "2026-11-20T11:13+09:00",
-   "tags": []
-  },
-  {
-   "title": "애플, 수능·연말 맞아 학생 할인…맥북 에어 최대 40만원↓ - 머니투데이",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5rblk5UXNsWlBkUnkyMGJKOEw2ZjVjUEtrVFpVMDd0TjFjV0hUTDlBRUxBcHcxcFdrS1REcFEta3VCX3ZKS0thM0JaZjlfU3JET21BVk5Ib2ZvbkF2VUdnOXNkU1JBM1NHOFRSTtIBbEFVX3lxTE5rblk5UXNsWlBkUnkyMGJKOEw2ZjVjUEtrVFpVMDd0TjFjV0hUTDlBRUxBcHcxcFdrS1REcFEta3VCX3ZKS0thM0JaZjlfU3JET21BVk5Ib2ZvbkF2VUdnOXNkU1JBM1NHOFRSTg?oc=5",
-   "source": "머니투데이",
-   "published": "2026-11-20T10:08+09:00",
-   "tags": [
-    "지원금",
-    "할인"
-   ]
   }
  ]
 }
