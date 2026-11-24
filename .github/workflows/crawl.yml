@@ -52,7 +52,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           python scripts/bundle.py
-          git add docs/data docs/jnu-notice-offline.html
+          git add docs/data docs/jnu-notice-offline.html docs/opportunity/jnu-opportunity-offline.html
           git commit -m "data: 공지 업데이트 $(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"
           git push
 

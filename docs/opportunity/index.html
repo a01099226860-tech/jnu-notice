@@ -250,8 +250,9 @@
         useEffect(() => saveFilters(filters), [filters]);
 
         useEffect(() => {
-          fetch(`${DATA_URL}?v=${Date.now()}`)
-            .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+          // 오프라인 저장본(scripts/bundle.py)은 데이터가 파일 안에 들어 있음
+          (window.__OFFLINE_OPP ? Promise.resolve(window.__OFFLINE_OPP) : fetch(`${DATA_URL}?v=${Date.now()}`)
+            .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }))
             .then(data => {
               setNotices(data.notices.filter(n => n.opp).map(toNotice));
               const d = new Date(data.updated_at);
@@ -353,6 +354,9 @@
                     </${VStack}>
                     <${VStack} gap=${1} hAlign="end">
                       <${Text} type="supporting" size="sm">마지막 업데이트 ${lastUpdated || '-'}</${Text}>
+                      ${window.__OFFLINE_OPP
+                        ? h`<${Text} type="supporting" size="sm">📁 저장본 · 최신은 <a href="https://a01099226860-tech.github.io/jnu-notice/opportunity/">사이트</a>에서</${Text}>`
+                        : h`<${Text} type="supporting" size="sm"><a href="jnu-opportunity-offline.html" download="제주대_기회공지.html">⬇ HTML 파일로 받기</a></${Text}>`}
                     </${VStack}>
                   </${HStack}>
                 </${LayoutHeader}>`}

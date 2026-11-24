@@ -10,6 +10,7 @@ from pathlib import Path
 
 DOCS = Path(__file__).resolve().parent.parent / "docs"
 OUT = DOCS / "jnu-notice-offline.html"
+OPP_OUT = "jnu-opportunity-offline.html"
 
 
 def main() -> None:
@@ -36,6 +37,18 @@ def main() -> None:
                   html, flags=re.S)
     OUT.write_text(html, encoding="utf-8")
     print(f"오프라인 파일 생성: {OUT.name} ({OUT.stat().st_size // 1024} KB)")
+
+    # 기회 공지 페이지: 데이터(기회 공지만)를 넣는다. 화면 부품은 CDN 에서 받으므로 열 때 인터넷 필요
+    if "notices.json" in data:
+        src = data["notices.json"]
+        opp = {"updated_at": src.get("updated_at"), "notices": [n for n in src["notices"] if n.get("opp")]}
+        opp_payload = json.dumps(opp, ensure_ascii=False).replace("</", "<\\/")
+        page = (DOCS / "opportunity" / "index.html").read_text(encoding="utf-8")
+        page = page.replace('<script type="importmap">',
+                            f'<script>window.__OFFLINE_OPP = {opp_payload};</script>\n    <script type="importmap">', 1)
+        out2 = DOCS / "opportunity" / OPP_OUT
+        out2.write_text(page, encoding="utf-8")
+        print(f"오프라인 파일 생성: opportunity/{OPP_OUT} ({out2.stat().st_size // 1024} KB)")
 
 
 if __name__ == "__main__":
