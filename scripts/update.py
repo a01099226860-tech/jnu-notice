@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE = "https://a01099226860-tech.github.io/jnu-notice/"
+SITE = "https://kangworkplace.github.io/jnu-notice/"
 
 
 def git(*args: str, check: bool = True) -> subprocess.CompletedProcess:

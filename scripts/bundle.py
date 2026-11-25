@@ -33,7 +33,7 @@ def main() -> None:
     # 오프라인 파일 안에서는 다운로드 버튼 대신 안내 문구
     html = re.sub(r'<p class="schedule download">.*?</p>',
                   '<p class="schedule download">📁 오프라인 저장본이에요. 최신 공지는 '
-                  '<a href="https://a01099226860-tech.github.io/jnu-notice/">사이트</a>에서 확인하세요.</p>',
+                  '<a href="https://kangworkplace.github.io/jnu-notice/">사이트</a>에서 확인하세요.</p>',
                   html, flags=re.S)
     OUT.write_text(html, encoding="utf-8")
     print(f"오프라인 파일 생성: {OUT.name} ({OUT.stat().st_size // 1024} KB)")

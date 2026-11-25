@@ -2,7 +2,7 @@
 
 제주대학교 공지사항을 모아 마감일·등록금 일정·혜택 뉴스·제주 날씨와 함께 보여주는 학생용 **비공식** 웹사이트입니다.
 
-사이트: https://a01099226860-tech.github.io/jnu-notice/
+사이트: https://kangworkplace.github.io/jnu-notice/
 
 ## 화면
 
