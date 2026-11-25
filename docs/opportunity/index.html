@@ -153,6 +153,29 @@
       .cat-intl { --moa-cat: var(--moa-cat-intl); }
       .cat-extra { --moa-cat: var(--moa-cat-extra); }
       .cat-event { --moa-cat: var(--moa-cat-event); }
+      /* 워드마크 서체: Gasoek One (SIL Open Font License). '제대모아JNU-MOA' 글자만 담은 파일이라
+         이름 글자를 바꾸면 이 파일도 다시 받아야 해요 (fonts.googleapis.com/css2?family=Gasoek+One&text=...) */
+      @font-face {
+        font-family: 'JNU-MOA Wordmark';
+        src: url(data:font/woff2;base64,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) format('woff2');
+        font-display: swap;
+      }
+      /* 머리말: 제주 현무암 띠 위에 워드마크 */
+      /* 머리말: 제주 현무암 단색 띠 */
+      .brand-header {
+        background: var(--moa-basalt);
+      }
+      .brand-header .wordmark {
+        font-family: 'JNU-MOA Wordmark', var(--font-family-heading);
+        font-weight: 400;
+        font-size: 2.25rem;
+        line-height: 1;
+        letter-spacing: 0.01em;
+      }
+      .brand-header .wordmark-latin {
+        font-family: 'JNU-MOA Wordmark', var(--font-family-body);
+        letter-spacing: 0.04em;
+      }
       /* 첫 문장 옆 작은 달력 */
       .mini-cal {
         width: 17rem;
@@ -352,6 +375,8 @@
           '--moa-cat-intl': ['#C0267D', '#F08CC4'],
           '--moa-cat-extra': ['#2B8A3E', '#7CCF8E'],
           '--moa-cat-event': ['#9A7400', '#E3C25A'],
+          // 머리말 띠: 제주 현무암
+          '--moa-basalt': ['#232527', '#232527'],
         },
         tokens: {
           '--color-background-body': ['#FFFFFF', '#1A1C1D'],
@@ -1240,6 +1265,31 @@
       }
 
       // ================================================================
+      // 화면 조각 — 첫 문장 아래 '가장 가까운 마감' (남은 날을 크게)
+      // ================================================================
+      function UpcomingDeadlines({items, saved, onOpen}) {
+        const anySaved = items.some(n => saved.has(n.id));
+        return h`
+          <${VStack} gap=${1} paddingBlockStart=${4}>
+            <${Text} type="supporting" size="sm" weight="medium">${anySaved ? '담은 공지부터, 가장 가까운 마감' : '가장 가까운 마감'}</${Text}>
+            <${List} hasDividers edge="outset" density="compact">
+              ${items.map(n => h`
+                <${ListItem} key=${n.id} onClick=${() => onOpen(n)} align="center"
+                  startContent=${h`
+                    <${VStack} width=${88}>
+                      <${Text} size="2xl" weight="bold" hasTabularNumbers textWrap="nowrap" color=${isUrgent(n) ? 'urgent' : undefined}>${ddayLabel(n)}</${Text}>
+                    </${VStack}>`}
+                  label=${h`<${Text} weight="semibold" maxLines=${1}>${n.title}</${Text}>`}
+                  description=${h`
+                    <${HStack} gap=${2} vAlign="center">
+                      <${CategoryMark} category=${n.category} />
+                      <${Text} type="supporting" size="sm">${isoLabel(n.deadline)}까지${saved.has(n.id) ? ', 담음' : ''}</${Text}>
+                    </${HStack}>`} />`)}
+            </${List}>
+          </${VStack}>`;
+      }
+
+      // ================================================================
       // 화면 조각 — 첫 문장 옆 작은 달력 (점: 담은 공지 마감, 짧은 줄: 학사일정)
       // ================================================================
       function MiniMonth({dayMap, onPick}) {
@@ -1411,6 +1461,13 @@
         // 작은 달력: 이번 달 담은 공지 마감 + 학사일정
         const miniMap = useMemo(() => buildDayMap(academic || [],
           (notices || []).filter(n => saved.has(n.id) && hasDate(n) && !n.closed && daysLeft(n) >= 0)), [academic, notices, saved]);
+        // 가장 가까운 마감 3건: 담은 공지 먼저, 모자라면 지금 조건의 공지에서
+        const upcoming = useMemo(() => {
+          const pool = [...savedOpen, ...visible].filter(n => hasDate(n) && daysLeft(n) >= 0);
+          return [...new Map(pool.map(n => [n.id, n])).values()]
+            .sort((a, b) => (saved.has(b.id) - saved.has(a.id)) || daysLeft(a) - daysLeft(b))
+            .slice(0, 3);
+        }, [savedOpen, visible, saved]);
         const pickDay = iso => { setView('calendar'); setCalJump({iso, at: Date.now()}); };
         const onDrawerChange = v => { setIsOpen(v); if (!v) setHash(null); };
 
@@ -1487,6 +1544,7 @@
                       ? h`<${Text} size="2xl" as="p" weight="bold" textWrap="balance" aria-live="polite">${headline}</${Text}>`
                       : h`<${Text} type="display-3" as="p" weight="semibold" textWrap="balance" aria-live="polite">${headline}</${Text}>`}
                     ${subline && h`<${Text} type="supporting">${subline}</${Text}>`}
+                    ${!isNarrow && view !== 'calendar' && upcoming.length > 0 && h`<${UpcomingDeadlines} items=${upcoming} saved=${saved} onOpen=${open} />`}
                   </${VStack}>
                 </${StackItem}>
                 ${!isNarrow && view !== 'calendar' && h`
@@ -1516,27 +1574,31 @@
               height=${isNarrow ? 'auto' : 'fill'}
               contentWidth=${1200}
               header=${h`
-                <${LayoutHeader} hasDivider padding=${isNarrow ? 4 : 6}>
+                <${LayoutHeader} padding=${isNarrow ? 4 : 6} className="brand-header">
+                  <${Theme} theme=${moaTheme} mode="dark">
                   <${HStack} hAlign="between" vAlign="center" gap=${4} wrap="wrap">
-                    <${HStack} gap=${3} vAlign="end">
-                      <${Heading} level=${1} weight="bold" translate="no">제대모아</${Heading}>
-                      <${Text} type="supporting" size="sm" weight="medium" translate="no">JNU-MOA</${Text}>
-                    </${HStack}>
+                    <${VStack} gap=${1}>
+                      <${HStack} gap=${3} vAlign="end">
+                        <${Heading} level=${1} translate="no" className="wordmark">제대모아</${Heading}>
+                        <${Text} type="supporting" size="sm" weight="medium" translate="no" className="wordmark-latin">JNU-MOA</${Text}>
+                      </${HStack}>
+                    </${VStack}>
                     ${isNarrow
                       ? h`
                         <${VStack} gap=${0}>
-                          <${Text} type="supporting" size="sm">${updatedAt ? `${updatedAt.getMonth() + 1}/${updatedAt.getDate()} ${hhmm(updatedAt)} 기준` : ''}${window.__OFFLINE_OPP ? ' 저장본, ' : ''}${window.__OFFLINE_OPP && offlineLink}</${Text}>
+                          <${Text} size="sm">${updatedAt ? `${updatedAt.getMonth() + 1}/${updatedAt.getDate()} ${hhmm(updatedAt)} 기준` : ''}${window.__OFFLINE_OPP ? ' 저장본, ' : ''}${window.__OFFLINE_OPP && offlineLink}</${Text}>
                           ${isStaleData && h`<${Text} size="sm" color="urgent" weight="semibold">${Math.floor(hoursOld / 24)}일째 새 공지를 확인하지 못했어요.</${Text}>`}
                         </${VStack}>`
                       : h`
                         <${VStack} gap=${0} hAlign="end">
-                          <${Text} type="supporting" size="sm">${checkedText}</${Text}>
+                          <${Text} size="sm">${checkedText}</${Text}>
                           ${isStaleData && h`<${Text} size="sm" color="urgent" weight="semibold">${Math.floor(hoursOld / 24)}일째 새 공지를 확인하지 못했어요. 학교 홈페이지도 함께 확인하세요.</${Text}>`}
                           ${window.__OFFLINE_OPP
-                            ? h`<${Text} type="supporting" size="sm">내려받은 저장본이에요. 최신 공지는 <${Link} href=${SITE_URL}>제대모아 사이트</${Link}>에서 보세요.</${Text}>`
-                            : h`<${Text} type="supporting" size="sm"><${Link} href="jnu-opportunity-offline.html" download="제대모아_저장본.html">인터넷 없이 볼 파일 받기</${Link}></${Text}>`}
+                            ? h`<${Text} size="sm">내려받은 저장본이에요. 최신 공지는 <${Link} href=${SITE_URL}>제대모아 사이트</${Link}>에서 보세요.</${Text}>`
+                            : h`<${Text} size="sm"><${Link} href="jnu-opportunity-offline.html" download="제대모아_저장본.html">인터넷 없이 볼 파일 받기</${Link}></${Text}>`}
                         </${VStack}>`}
                   </${HStack}>
+                  </${Theme}>
                 </${LayoutHeader}>`}
               start=${!isNarrow && h`
                 <${LayoutPanel} width=${288} hasDivider padding=${6} role="complementary" label="내 조건">
