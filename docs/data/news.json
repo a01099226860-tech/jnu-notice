@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-25T21:31:50+09:00",
+ "updated_at": "2026-11-26T06:57:06+09:00",
  "queries": [
   "대학생 혜택",
   "대학생 장학금 신청",
@@ -9,12 +9,39 @@
  ],
  "items": [
   {
+   "title": "청년농부지원금 10억 타 대마 키워…1.5% 저금리",
+   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBZSnJCZW5xajJFQmtaSUk1cGNvZTlxaGFGbDd6VmlYY2o2NmJhdHk3cXYyMExMcHVyQ0JXVXZ0YWo5MmpNLVJuQlFha0w1MS1J?oc=5",
+   "source": "문화일보",
+   "published": "2026-11-25T22:34+09:00",
+   "tags": [
+    "지원금"
+   ]
+  },
+  {
+   "title": "제주 관광산업 청년 노동자 첫 5개년 지원계획 마련",
+   "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE45MFZNNk00OUZ2dWRGTDh5RkVOWHgtcEF4am9taC1hR3Q3RTRwVEI2SUpncnhlQkwyY25xMzdKbHdUT1NBN0YwMFRNTDFHZmVaT2g2d0xkMXh6S0ludk9B?oc=5",
+   "source": "뉴스다",
+   "published": "2026-11-25T20:51+09:00",
+   "tags": [
+    "제주"
+   ]
+  },
+  {
    "title": "나랏돈 10억 받고 전기료 할인까지…지하 벙커서 ‘대마’ 키운 청년농부",
    "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9HdzhmMjlGQ0E4Q0tZTVVHQU9HT2k5U2Q1ZDR6cHVoUkV3Q1BRUXZWRFFyUjJhaGptM2Y3N0NNa1FUeHMzeXhkYlJGandRajdKeGtfeUFFTmNfS3ExS3BtVEhrS2FNUdIBZkFVX3lxTE9HdzhmMjlGQ0E4Q0tZTVVHQU9HT2k5U2Q1ZDR6cHVoUkV3Q1BRUXZWRFFyUjJhaGptM2Y3N0NNa1FUeHMzeXhkYlJGandRajdKeGtfeUFFTmNfS3ExS3BtVEhrS2FNUQ?oc=5",
    "source": "동아일보",
    "published": "2026-11-25T17:42+09:00",
    "tags": [
     "할인"
+   ]
+  },
+  {
+   "title": "청년농부 지원금 10억 타내고, 지하 벙커서 대마 키운 동창들",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5WX244bTgwRzV5TXlxemlJMEpTNE5ZbTkxR2htaUZ5endQeVpzNTlMN3FnelN4MWNqd1BJdkVNYUZodmhiLUNjY2RpczFVWmI4SDVRTi1BTlpTR1hoOV9jNUlIWExoOXpWeExjRVdsdHlVN1E2NkHSAWZBVV95cUxPR3c4ZjI5RkNBOENLWU1VR0FPR09pOVNkNWQ0enB1aFJFd0NQUVF2VkRRclIyYWhqbTNmNzdDTWtRVHhzM3l4ZGJSRmp3UWo3SnhrX3lBRU5jX0txMUtwbVRIa0thTVE?oc=5",
+   "source": "동아일보",
+   "published": "2026-11-25T17:42+09:00",
+   "tags": [
+    "지원금"
    ]
   },
   {
@@ -27,12 +54,65 @@
    ]
   },
   {
+   "title": "한국외대, 청년 채용박람회 개최…재학생·졸업생·지역청년 700여 명 참석",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5wejFxV3BYVWc2b3B1OWczYi1lbjZqVlhNUDZELWt2NjRIMlJKWEo4VGs2bjhwVUpiYUt1U19lWWNydF9zbUsyRWhrWVFLSXp1ZV90Q2JqcXlZcWtacDdrWkQtcXNUUQ?oc=5",
+   "source": "한국대학신문",
+   "published": "2026-11-25T15:58+09:00",
+   "tags": [
+    "모집"
+   ]
+  },
+  {
+   "title": "[청년지원 브리핑] 청주시, 청년 자격증 응시료 연 최대 10만원 지원",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5oOHRTd0o4OF9Yd0EzRkFfYjcwUmRnQ3lnUDZpZlZIaks1SmlqcXltQjJNMmUybjhDUGhPT2lVRWdtUmNXcnl3MF9lN21KV05IdGtv?oc=5",
+   "source": "유스연합",
+   "published": "2026-11-25T15:40+09:00",
+   "tags": [
+    "지원금"
+   ]
+  },
+  {
+   "title": "관광산업 종사 청년 지원 5개년 계획 수립 추진",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB3azNDUjJyM29ibDZSd2lzNkl1a2FnUW9iV25Ta0c2NzgwVm9DN09OWlJGMVMzWDRIdkY1UFdZT0dwT2lLczhIcEctaEtvN3Q3TGFFel9tT1FUUFNwemtjRTZMcTNvcmxUZ1d3ZA?oc=5",
+   "source": "삼다일보",
+   "published": "2026-11-25T15:17+09:00",
+   "tags": []
+  },
+  {
+   "title": "아파트 숲 너머 179척의 어선… 김포시, 청년 수산업 정착에 월 최대 110만 원 지원 : 네이버 블로그",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOTE9nWnVMQlhyd0xTbzZqWjJ6T3ZoWFBzbUdzalc4VzlRV3NXeTlWMkg2ZzRRSUQtdC15VXRmRHlpN0NaQ1ZGT000TzAxeGhBLWFoYmlQVkROZVBndUZRZ3dVcjBQMjBVeHQzTWd5VVp5akx3X3g2aVpyV3d3X2lDbFJBWHAxNHhtbmtBOUhVcEFxZw?oc=5",
+   "source": "Naver Blog",
+   "published": "2026-11-25T12:17+09:00",
+   "tags": [
+    "지원금"
+   ]
+  },
+  {
    "title": "청양 장학회, 대학생 장학금 개편 논의",
    "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFByNzVZLUxtS2xNa2N0VXQ1b1FLMExCazRIQkpneWNpTGFTX3FpNnlQcExJUGQxU3UyOExZSDd3d1czUkpJQVVIU0RpTzRDelh2V2MwaUtDNTUyeC1XaVZuZURWOUVYdEQ0RWUyM21BVkVfZw?oc=5",
    "source": "투데이충남",
    "published": "2026-11-25T11:07+09:00",
    "tags": [
     "장학금"
+   ]
+  },
+  {
+   "title": "제주 관광산업 청년 인력 이탈 막는다…고용 안정·장기근속 지원 첫 5개년 지원계획 마련",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFB2MHpRdDE3Zm5PbEZsRzA4TEFRcnFQckxVb2hkT0lBVTNzNVlnaWJ5ZTlVaUtwaXdyUTZtNFkzVjJQN0lrRHkwX3gzOHpXdDBCRU02RkF0X2xLZmNPQU9SdHBXMWwzVDJ2ZXFj0gFuQVVfeXFMTTZrbmRVZ3liWEdGcHF4UzlBaGExTDFDaTZ5SWdYNGJpX09uUUNoX1lhazNBNnMtTU1aSVpteVdYS2lWWk44SmtjdHJrWFpNVmJfVXVSb3RSUEdmdlpjR3pILWtwV0MtNG8tcDdqaFE?oc=5",
+   "source": "제주뉴스",
+   "published": "2026-11-25T11:00+09:00",
+   "tags": [
+    "제주"
+   ]
+  },
+  {
+   "title": "제주 복지정책 4년 청사진 나왔다…청년 기본소득 시범사업·손주돌봄수당·AI 돌봄 활성화 추진",
+   "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9Xb1hucGtEX0ZQLXJfXy1PcUJrR3VPUF9RUGJOWmVESXJYRnhlUVRGa3BvVlI5QmRoVng0N2hMb19SZHV1emlxVFQ4dlBPVnhJcEtWUk9DMmlFOVBWbHdtU3RKZHpLNVNJTDZ30gFuQVVfeXFMUHdaY1ZHM0EzZUIzOHhfMTFBM25hYnJsNWZKcnU5LXh2a1M1MVoxa2V5Smd2ZDIzTGxKV2lxLWpidzNLZnhtclRXUk9ETWtkTDdRRHUzWkJ0SGtsd25WVXp6SWlsVTdHV0RZSWV2Y0E?oc=5",
+   "source": "제주뉴스",
+   "published": "2026-11-25T09:42+09:00",
+   "tags": [
+    "제주",
+    "지원금"
    ]
   },
   {
@@ -637,79 +717,6 @@
    "published": "2026-11-23T00:55+09:00",
    "tags": [
     "지원금"
-   ]
-  },
-  {
-   "title": "청년 주거지원 신청 전 반드시 확인해야 할 소득 및 재산 기준 정보",
-   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOMktDZVNMekVtYS1XOUFiWXdweGNMWUdQRFo5TmhiQXUtTWRCR1hfYzFUbXhQeFRCMkNkWHBzdGJDRzZvVDJka2dVZzFXUWNlZFpkbzhCYjhBS3lFbklzc0Z1UEc4UkxIMEpOOVFpdEV2RlNnR2V0a3RoaVpWdTRJNUV3TDRrY2gtZ3MwVXpKZjRzVy1tV3ZUMGV6VjBfWUdfTGRoc0I1M1NBcWZ0?oc=5",
-   "source": "블로그차트",
-   "published": "2026-11-22T21:59+09:00",
-   "tags": []
-  },
-  {
-   "title": "LH 청년전세임대주택 자격 요건과 신청부터 계약까지 핵심 정리",
-   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9OSUUwWGc2TWl0TFBmUUpRalpscUxYazIzVGpSWHhEcFdDNVJxWkRIb2lKd1lUQWF0cHZ2TFpKUWJic1RxaE0zMDdRM09jNTBSS21n?oc=5",
-   "source": "블로그차트",
-   "published": "2026-11-22T16:06+09:00",
-   "tags": []
-  },
-  {
-   "title": "[한입신문 장학브리핑] 11월 넷째 주.. 국가장학금 24일 신청 시작, 대학 장학금과 겨울 기숙사 마감 확인",
-   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBoc0IxcDZMZWhVNzJzaXpJbEZfZVJ2MThkUHZVOXdabEpGMXA0aGFER29BdXluTG1lMnlrc3dBWUU3TlNFYWk0dUZ0T1RTd3QyNllmRXk3RzcyVTdtLXRKQm4wMDFhNE43c0E?oc=5",
-   "source": "한입신문",
-   "published": "2026-11-22T15:33+09:00",
-   "tags": [
-    "장학금"
-   ]
-  },
-  {
-   "title": "제주 청년농업인과 영농 정착 위한 기술 지원 방향 논의",
-   "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1xekphYXlXdGdHY3RVandJc3pmMFVJcWRsMnFDUkZlSG1QMmN1ZGgzbW51X3dXREc3R1VqUWl1RV8zUFFkRHdKYWYxdWhOY1dNZzNvTlpPTVJObkV6RVJhY2l3?oc=5",
-   "source": "서울Pn",
-   "published": "2026-11-22T14:01+09:00",
-   "tags": [
-    "제주"
-   ]
-  },
-  {
-   "title": "2027 국가장학금 11월 24일 신청 시작｜대학 합격 전 고3도 가능할까? 소득구간 5단계 개편·최대 등록금 전액·신청방법 총정리",
-   "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOa1Y4RFozS3ltRUU4NUp2ZWI0N0x3eUxCMFZ4MUZwRjdTeFROcnBDWTc4ZjY2Y1l4NkV3cmxQdmRyNDkzNHkzU2FaMGt5V2ZSNXB2d2tydmRGQXA0MnNZV25ldHB5WWlKcGhKLWpGdTJhekJyaS1oWGJ1YXhTOWl1TWNDQmVGSGlxRUdj?oc=5",
-   "source": "네이버 프리미엄콘텐츠",
-   "published": "2026-11-22T12:47+09:00",
-   "tags": [
-    "장학금"
-   ]
-  },
-  {
-   "title": "[청년의 빚과 빛③] 234만명 신청했는데 138만명 가입…청년 자산형성의 문턱",
-   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE0tSnk3NXRGU2ZtWmlqb2t0dFQxTXo4OVJ6UzVfYzMwbm9YWXpPYmZON25BV0E2LVNSbXNTNlNnVFJMWFlrLTY1aTQ4VWt0SkVfWmR6VkhMejJMR3llM2plelFVcGY?oc=5",
-   "source": "https://www.ppss.kr/",
-   "published": "2026-11-22T11:24+09:00",
-   "tags": []
-  },
-  {
-   "title": "lh청년전세임대 신청 전 꼭 확인해야 할 핵심 자격과 지원 한도",
-   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9wSDJMTHdXYmMxMUlvUFpVaG14VTV1aXo0clpOMUxSLWxZZ2VXSWtINWxQWEt2RmEzazZTSUR4Q21CekUydDdEdkxLYnNXX2ZSWnRr?oc=5",
-   "source": "블로그차트",
-   "published": "2026-11-22T11:19+09:00",
-   "tags": []
-  },
-  {
-   "title": "lh 청년매입임대주택 3차 서울 지역 예비입주자 모집 핵심 요건과 혜택",
-   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE14blpYU1NhZGl2NUNVTHM4bFFOQUpRMUJyWVljSEpRbG1HRnpTMkhhUklac0F1dkt3ZFNUQXhucHoybERnQmlCV2V1N21LYlBnZWxn?oc=5",
-   "source": "블로그차트",
-   "published": "2026-11-22T11:15+09:00",
-   "tags": [
-    "모집"
-   ]
-  },
-  {
-   "title": "개봉역 세이지움 청년안심주택 11월 추가모집 신청 자격과 임대료 정보",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPZ1hLdkU3SGpHUDdGSFYwQ3gwM19DM2xneU5TN2pEaVo2RzdrT0ExaDZjZTdjOUxnQk5scnZwcHdOTGhYOTh3ejlGVUotdXVHYUNsazBKZVlHSjVIZ2pxMVM4MS1naXN3OUh4bHJwTmwzY2Q5Qm1IelNFdU1CQU5IenBpd0tNdXdWdTduRGx0T1pmM1FYekVqOFVoRUdSUG8?oc=5",
-   "source": "블로그차트",
-   "published": "2026-11-22T10:42+09:00",
-   "tags": [
-    "모집"
    ]
   }
  ]
