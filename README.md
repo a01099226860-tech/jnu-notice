@@ -23,12 +23,13 @@
 ## 구조
 
 ```
-scraper/crawl.py              수집기 (공지 + 혜택 뉴스 + 날씨)
+scraper/crawl.py              수집기 (공지 + 혜택 뉴스 + 날씨 + 학사일정)
 scripts/update.py             PC 수동 업데이트 (수집 → 변경 시 커밋·push)
 update.bat                    위 스크립트를 더블클릭으로 실행
 docs/                         GitHub Pages 로 배포되는 정적 사이트
   index.html, style.css, app.js
-  data/notices.json · news.json · weather.json
+  data/notices.json · news.json · weather.json · academic.json(학사일정, 12시간마다)
+  opportunity/index.html      제대모아 (기회 공지 마감순 목록 + 내 달력: 담은 공지 마감·제주대 학사일정)
 .github/workflows/crawl.yml   수집 작업 (30분마다 자동 + 수동 실행)
 ```
 

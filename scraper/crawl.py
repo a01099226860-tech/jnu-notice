@@ -423,6 +423,7 @@ def main() -> int:
 
     crawl_news()
     crawl_weather()
+    crawl_academic()
     if failed_cats == len(CATEGORIES):
         print("학교 서버에 접속하지 못했습니다 (모든 탭 실패).", file=sys.stderr)
         return 2
@@ -633,6 +634,109 @@ def crawl_news() -> None:
         "items": result,
     }, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"혜택 뉴스 {len(result)}건 저장 → {NEWS_OUT.relative_to(ROOT)}")
+
+
+# ---------------------------------------------------------------- 학사일정
+# 제주대 홈페이지 '학사일정' 페이지(연도별)를 읽어 docs/data/academic.json 에 저장한다.
+# 기회 공지 페이지(제대모아)의 '내 달력' 탭이 이 파일을 보여준다.
+# 학교가 일정을 자주 바꾸지 않으므로 12시간에 한 번만 받는다 (수동 실행 땐 항상).
+ACADEMIC_URL = BASE + "/admission/eduguide/degree/academyschedule/academic.htm"
+ACADEMIC_OUT = ROOT / "docs" / "data" / "academic.json"
+ACADEMIC_INTERVAL_H = 12
+ACADEMIC_SKIP = re.compile(r"^\(대학원\)")  # 학부생 대상 서비스라 대학원 전용 일정은 뺀다
+ACADEMIC_TYPES = [  # (종류, 제목 규칙) — 위에서부터 먼저 맞는 것
+    ("수강신청", re.compile(r"수강신청|희망과목|수강포기")),
+    ("학적", re.compile(r"휴학|복학|재입학|전과|자퇴|학적")),
+    ("성적", re.compile(r"성적")),
+    ("방학", re.compile(r"방학")),
+    ("수업", re.compile(r"개강|종강|개시일|보강|휴강|시험|수업일수|계절수업")),
+]
+MD = re.compile(r"(\d{1,2})\s*\.\s*(\d{1,2})")
+
+
+def academic_type(title: str) -> str:
+    return next((t for t, p in ACADEMIC_TYPES if p.search(title)), "기타")
+
+
+def parse_academic(year: int) -> list[dict]:
+    time.sleep(DELAY)
+    r = session.get(ACADEMIC_URL, params={"year": year}, timeout=20)
+    r.raise_for_status()
+    r.encoding = r.apparent_encoding if r.encoding in (None, "ISO-8859-1") else r.encoding
+    soup = BeautifulSoup(r.text, "html.parser")
+    url = f"{ACADEMIC_URL}?year={year}"
+    events = []
+    for block in soup.select(".month-wrap"):
+        head = block.select_one("h3 strong")
+        block_month = int(head.get_text(strip=True)) if head and head.get_text(strip=True).isdigit() else None
+        for li in block.select("li"):
+            when = li.find("strong")
+            what = li.find("span")
+            if not when or not what:
+                continue
+            title = clean(what.get_text(" "))
+            dates = MD.findall(when.get_text(" "))
+            if not title or not dates or ACADEMIC_SKIP.search(title):
+                continue
+            sm, sd = map(int, dates[0])
+            # 1월 칸에 12월부터 시작하는 일정이 있으면 전년도에 시작한 것
+            sy = year - 1 if block_month and sm - block_month > 6 else year
+            try:
+                start = date(sy, sm, sd)
+                end = start
+                if len(dates) > 1:
+                    em, ed = map(int, dates[1])
+                    end = date(sy + (1 if em < sm else 0), em, ed)  # 12.28 ~ 01.18 처럼 해를 넘김
+            except ValueError:
+                continue
+            events.append({"title": title, "start": start.isoformat(),
+                           "end": end.isoformat() if end > start else None,
+                           "type": academic_type(title), "url": url})
+    # 휴강일·보강일 표 (학기 | 휴강일 | 보강일 | 사유, 학기 칸은 여러 줄을 합쳐 씀)
+    for tr in soup.select("table tr"):
+        cells = [clean(td.get_text(" ")) for td in tr.find_all("td")]
+        isos = [c for c in cells if re.fullmatch(r"\d{4}-\d{2}-\d{2}", c)]
+        if len(isos) != 2 or not cells[-1] or re.fullmatch(r"[\d-]+", cells[-1]):
+            continue
+        off, makeup = isos
+        mk = date.fromisoformat(makeup)
+        events.append({"title": f"휴강: {cells[-1]} (보강 {mk.month}/{mk.day})", "start": off, "end": None,
+                       "type": "수업", "url": url})
+    return events
+
+
+def crawl_academic() -> None:
+    prev = {}
+    if ACADEMIC_OUT.exists():
+        prev = json.loads(ACADEMIC_OUT.read_text(encoding="utf-8"))
+        last = datetime.fromisoformat(prev.get("updated_at", "2000-01-01T00:00:00+09:00"))
+        if datetime.now(KST) - last < timedelta(hours=ACADEMIC_INTERVAL_H) and not os.getenv("FORCE_NEWS"):
+            print("학사일정: 최근에 갱신됨, 건너뜀")
+            return
+    this_year = datetime.now(KST).year
+    by_key: dict[tuple, dict] = {}
+    years = []
+    for y in (this_year - 1, this_year, this_year + 1):
+        try:
+            evs = parse_academic(y)
+        except Exception as e:  # noqa: BLE001
+            print(f"학사일정 {y}년 실패: {e}", file=sys.stderr)
+            continue
+        if evs:
+            years.append(y)
+        for ev in evs:
+            by_key.setdefault((ev["title"], ev["start"]), ev)
+    if not by_key:  # 학교 서버 접속 실패 → 이전 파일을 그대로 둔다
+        print("학사일정: 받아온 일정이 없어 이전 파일 유지", file=sys.stderr)
+        return
+    events = sorted(by_key.values(), key=lambda e: (e["start"], e["title"]))
+    ACADEMIC_OUT.write_text(json.dumps({
+        "updated_at": datetime.now(KST).isoformat(timespec="seconds"),
+        "source": ACADEMIC_URL,
+        "years": years,
+        "events": events,
+    }, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"학사일정 {len(events)}건 ({', '.join(map(str, years))}년) 저장 → {ACADEMIC_OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

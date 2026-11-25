@@ -43,9 +43,14 @@ def main() -> None:
         src = data["notices.json"]
         opp = {"updated_at": src.get("updated_at"), "notices": [n for n in src["notices"] if n.get("opp")]}
         opp_payload = json.dumps(opp, ensure_ascii=False).replace("</", "<\\/")
+        # 학사일정 (내 달력 탭)
+        acad_path = DOCS / "data" / "academic.json"
+        acad = json.loads(acad_path.read_text(encoding="utf-8")) if acad_path.exists() else {"events": []}
+        acad_payload = json.dumps(acad, ensure_ascii=False).replace("</", "<\\/")
         page = (DOCS / "opportunity" / "index.html").read_text(encoding="utf-8")
         page = page.replace('<script type="importmap">',
-                            f'<script>window.__OFFLINE_OPP = {opp_payload};</script>\n    <script type="importmap">', 1)
+                            f'<script>window.__OFFLINE_OPP = {opp_payload};\n    window.__OFFLINE_ACADEMIC = {acad_payload};</script>\n'
+                            '    <script type="importmap">', 1)
         out2 = DOCS / "opportunity" / OPP_OUT
         out2.write_text(page, encoding="utf-8")
         print(f"오프라인 파일 생성: opportunity/{OPP_OUT} ({out2.stat().st_size // 1024} KB)")
