@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-26T13:04:19+09:00",
+ "updated_at": "2026-11-27T07:55:07+09:00",
  "source": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm",
  "years": [
   2025,
@@ -873,6 +873,69 @@
    "start": "2027-02-24",
    "end": "2027-02-26",
    "type": "수강신청",
+   "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
+  },
+  {
+   "title": "휴강: 노동절(대체공휴일) (보강 6/14)",
+   "start": "2027-05-03",
+   "end": null,
+   "type": "수업",
+   "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
+  },
+  {
+   "title": "휴강: 어린이날 (보강 6/9)",
+   "start": "2027-05-05",
+   "end": null,
+   "type": "수업",
+   "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
+  },
+  {
+   "title": "휴강: 부처님오신날 (보강 6/10)",
+   "start": "2027-05-13",
+   "end": null,
+   "type": "수업",
+   "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
+  },
+  {
+   "title": "휴강: 개교기념일 (보강 6/8)",
+   "start": "2027-05-27",
+   "end": null,
+   "type": "수업",
+   "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
+  },
+  {
+   "title": "휴강: 추석연휴 (보강 12/14)",
+   "start": "2027-09-14",
+   "end": null,
+   "type": "수업",
+   "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
+  },
+  {
+   "title": "휴강: 추석 (보강 12/8)",
+   "start": "2027-09-15",
+   "end": null,
+   "type": "수업",
+   "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
+  },
+  {
+   "title": "휴강: 추석연휴 (보강 12/9)",
+   "start": "2027-09-16",
+   "end": null,
+   "type": "수업",
+   "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
+  },
+  {
+   "title": "휴강: 개천절(대체공휴일) (보강 12/13)",
+   "start": "2027-10-04",
+   "end": null,
+   "type": "수업",
+   "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
+  },
+  {
+   "title": "휴강: 한글날(대체공휴일) (보강 12/10)",
+   "start": "2027-10-11",
+   "end": null,
+   "type": "수업",
    "url": "https://www.jejunu.ac.kr/admission/eduguide/degree/academyschedule/academic.htm?year=2027"
   }
  ]
