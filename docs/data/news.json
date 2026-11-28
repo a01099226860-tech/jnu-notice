@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-28T08:20:49+09:00",
+ "updated_at": "2026-11-28T23:00:35+09:00",
  "queries": [
   "대학생 혜택",
   "대학생 장학금 신청",
@@ -8,6 +8,15 @@
   "청년 할인 혜택"
  ],
  "items": [
+  {
+   "title": "제주탄소중립지원센터, 지속가능한 캠퍼스 조성을 위한 ‘제주 청년 기후행동 숙의공론장’ 개최",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE03Y1NLaTBDSUNvdEtya1l1WjlEQ2FjdWtOVDVNdnhxYUcyb0k3ZHdhQ0JPczRBYUw3NU14Z2ptc2pfbGRjODhXSUxQbEFRN2tNOXE3UURTekM5UXdadS04TUd0ZFJUS0dHblJSS1F3?oc=5",
+   "source": "지금제주",
+   "published": "2026-11-28T21:03+09:00",
+   "tags": [
+    "제주"
+   ]
+  },
   {
    "title": "‘제5회 월파 장학재단 장학금 수여식’···중·고, 대학생 46명에 3300여만원 전달",
    "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBkVlRUM2VYek9lUnJiSXV6QTBULUUwWm55QXp5YUFvOFVONlhWdmloaGlLX05oYklMUVF2OGE0OUR1eGg3WlBFa3JrM3NFcnhnejJZ?oc=5",
@@ -696,15 +705,6 @@
    "source": "블로그차트",
    "published": "2026-11-23T16:40+09:00",
    "tags": []
-  },
-  {
-   "title": "교육부, 신청은 미리! 등록금 걱정은 멀리! 2027학년도 1학기 국가장학금 신청하세요",
-   "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBXeW84alRnUjNndDk3WlR3RTdCckFPbFJ1d1VMWlZOQ3V2YWcwVVhlVUhkYnlXa05vcjVKRjd3My10VHg4T0EydXVB?oc=5",
-   "source": "미디어투데이",
-   "published": "2026-11-23T16:08+09:00",
-   "tags": [
-    "장학금"
-   ]
   }
  ]
 }
